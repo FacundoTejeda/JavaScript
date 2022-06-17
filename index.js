@@ -22,30 +22,30 @@
  
 
 
-// let nombres = prompt("Ingresa tu nombre")
-// while(nombres != "ESC" ){
-//     switch (nombres) {
-//         case "FACUNDO":
-//             alert ("Buen dia Facundo");
-//             break;
-//         case "IVON":
-//             alert ("Buen dia Ivon");
-//             break;
-//         case "VALEN":
-//             alert ("Buen dia Valen");
-//             break;
-//         default:
-//             alert ("Quien sos?");
-//             break;
-//     }
-//     entrada = prompt ("Ingresa tu nombre");
-// }
+ let nombres = prompt("Ingresa tu nombre")
+ while(nombres != "ESC" ){
+     switch (nombres) {
+         case "FACUNDO":
+             alert ("Buen dia Facundo");
+             break;
+         case "IVON":
+             alert ("Buen dia Ivon");
+             break;
+         case "VALEN":
+             alert ("Buen dia Valen");
+             break;
+         default:
+             alert ("Quien sos?");
+             break;
+     }
+     entrada = prompt ("Ingresa tu nombre");
+ }
 
  const comisiones = function (montoUno, montoDos){
-     let suma = montoUno*montoDos/5%
-     alert ("La comision que vas a abonar es : "+suma)
+     let suma = montoUno*montoDos*0.05
+     alert ("La comision que vas a abonar es : $" +suma)
  }
- let montoUno= parsefloat (prompt("Ingrese el valor del alquiler "))
- let montoDos= parsefloat (prompt("Ingrese la cantidad de meses del contrato "))
+ let montoUno= parseFloat (prompt("Ingrese el valor del alquiler "))
+ let montoDos= parseFloat (prompt("Ingrese la cantidad de meses del contrato "))
 
  comisiones (montoUno,montoDos)

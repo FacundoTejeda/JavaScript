@@ -1,6 +1,19 @@
-  for (let i = 1; i<=5; i++){
+ let precio =100;
+ if (precio < 20){
+    alert ("El precio es menor que 20")
+ } else if (precio < 50){
+    alert ("El precio es menor que 50")
+ } else if (precio < 70){
+    alert ("El precio es menor que 70")
+ }
+ else ("El precio llego a los 100")
+ 
+ 
+ 
+ 
+ for (let i = 1; i<=5; i++){
  let ingresarNombre = prompt("Ingrese su nombre")
-     alert("Turno N°: "+i+" Nombre: "+ ingresarNombre)
+   alert("Turno N°: "+i+" Nombre: "+ ingresarNombre)
    break
   }
 

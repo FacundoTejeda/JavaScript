@@ -51,7 +51,7 @@
              alert ("Quien sos?");
              break;
      }
-     entrada = prompt ("Ingresa tu nombre");
+     nombres = prompt ("Ingresa tu nombre");
  }
 
  const comisiones = function (montoUno, montoDos){

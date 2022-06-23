@@ -1,64 +1,70 @@
- let precio =100;
- if (precio < 20){
-    alert ("El precio es menor que 20")
- } else if (precio < 50){
-    alert ("El precio es menor que 50")
- } else if (precio < 70){
-    alert ("El precio es menor que 70")
- }
- else ("El precio llego a los 100")
+
  
  
+  for (let i = 1; i<=5; i++){
+  let ingresarNombre = prompt("Ingrese su nombre")
+   alert("Turno de fotos N°: "+i+" Nombre: "+ ingresarNombre)
+    break
+   }
+
  
+//  let numero = parseInt (prompt("Que tabla queres saber?"))
+//   let i= 1
+//   do{
+//       let resultado = numero*i
+//       console.log(i+" X "+numero+ " = "+resultado)
+//       i++
+//   }
+//   while(i<=10)
  
- for (let i = 1; i<=5; i++){
- let ingresarNombre = prompt("Ingrese su nombre")
-   alert("Turno N°: "+i+" Nombre: "+ ingresarNombre)
-   break
+
+
+  let nombres = prompt("Ingresa el nombre de tu colegio")
+  while(nombres != "ESC" ){
+      switch (nombres) {
+          case "Instituto Adventista Cordoba":
+              alert ("Hola chicos de Cordoba");
+              break;
+          case "Instituto Adventista Balcarce":
+              alert ("Hola chicos de Balcarce");
+              break;
+          case "Instituto Adventista Santa Fe":
+              alert ("Hola chicos de Santa Fe");
+              break;
+          default:
+              alert ("De que cole sos?");
+              break;
+      }
+      nombres = prompt ("Ingresa tu colegio");
   }
 
-// // //while y dowhile//
-  let entrada = prompt("Ingrese un dato (ESC para salir)")
-  while(entrada !== "ESC"){
-      alert ("El usuario ingreso: "+ entrada)
-     entrada = prompt("Ingresa otro dato")
-  }
 
- let numero = parseInt (prompt("Que tabla queres saber?"))
-  let i= 1
-  do{
-      let resultado = numero*i
-      console.log(i+" X "+numero+ " = "+resultado)
-      i++
-  }
-  while(i<=10)
+ const sesionEgresados = 10000
+ let cantidad = parseInt (prompt("Ingresar cantidad de alumnos que quieren la sesion (Hay descuentos por cantidad): "))
+
+ function total (cantidad){
+    let total = cantidad*sesionEgresados
+    alert ("El total a abonar es de: $ " +total); 
+ }
  
+let formaPago = parseInt(prompt("En que forma van a querer abonar?: \n1. Si abonan en una cuota tienen un (15% de descuento) \n2. Si abonan en 3 cuotas tienen un (5% de descuento) \n3. Si abonan en 6 cuotas no tienen descuento" ))
+while (formaPago !="ESC" ){
+switch(pago) {
+    case 1:        
+        alert ("Muchas gracias por su pago, nos vemos en la fiesta!, el total es: $ " +total *porcentajeDescuento1);
+        break;
+    case 2:        
+        alert ("Muchas gracias por su pago, nos vemos en la fiesta!, el total es: $ " +total * porcentajeDescuento2);
+        break;
+    case 3:        
+        alert ("Muchas gracias por su pago, nos vemos en la fiesta!, el total es: $ " +total);
+        break;
+    default:
+        alert ("Si estas buscando otra financiacion escribinos por privado");
+        break;
+}
+}
 
+let porcentajeDescuento1 = 0.15
+let porcentajeDescuento2 = 0.05
 
- let nombres = prompt("Ingresa tu nombre")
- while(nombres != "ESC" ){
-     switch (nombres) {
-         case "FACUNDO":
-             alert ("Buen dia Facundo");
-             break;
-         case "IVON":
-             alert ("Buen dia Ivon");
-             break;
-         case "VALEN":
-             alert ("Buen dia Valen");
-             break;
-         default:
-             alert ("Quien sos?");
-             break;
-     }
-     nombres = prompt ("Ingresa tu nombre");
- }
-
- const comisiones = function (montoUno, montoDos){
-     let suma = montoUno*montoDos*0.05
-     alert ("La comision que vas a abonar es : $" +suma)
- }
- let montoUno= parseFloat (prompt("Ingrese el valor del alquiler "))
- let montoDos= parseFloat (prompt("Ingrese la cantidad de meses del contrato "))
-
- comisiones (montoUno,montoDos)

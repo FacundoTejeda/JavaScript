@@ -54,19 +54,21 @@ let porcentajeDescuento2 = 0.05;
 function precioFinal1 (total, porcentajeDescuento1){
 return (total - (total * porcentajeDescuento1)) 
 }
+let precioFinal_1 = precioFinal1 ()
+
 function precioFinal2 (total, porcentajeDescuento2){
     return (total - (total * porcentajeDescuento2)) 
     }
+let precioFinal_2 = precioFinal2()
 
 
 let formaPago = parseInt(prompt("En que forma van a querer abonar?: \n1. Si abonan en una cuota tienen un (15% de descuento) \n2. Si abonan en 3 cuotas tienen un (5% de descuento) \n3. Si abonan en 6 cuotas no tienen descuento" ))
-while (formaPago !="" ){
-switch(pago) {
+switch(formaPago) {
     case 1:      
-        alert ("Muchas gracias por su pago, nos vemos en la fiesta!, el total es: $ " + precioFinal1);
+        alert ("Muchas gracias por su pago, nos vemos en la fiesta!, el total es: $ " + precioFinal_1);
         break;
     case 2:        
-        alert ("Muchas gracias por su pago, nos vemos en la fiesta!, el total es: $ " + precioFinal2);
+        alert ("Muchas gracias por su pago, nos vemos en la fiesta!, el total es: $ " + precioFinal_2);
         break;
     case 3:        
         alert ("Muchas gracias por su pago, nos vemos en la fiesta!, el total es: $ " + total);
@@ -75,7 +77,7 @@ switch(pago) {
         alert ("Si estas buscando otra financiacion escribinos por privado");
         break;
 }
-}
+
 
 
 

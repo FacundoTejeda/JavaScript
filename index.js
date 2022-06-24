@@ -19,7 +19,7 @@
  
 
 
-  let nombres = prompt("Ingresa el nombre de tu colegio")
+  let nombres = prompt("Ingresa el nombre de tu colegio: Instituto Adventista Cordoba,Instituto Adventista Balcarce, Instituto Adventista Santa Fe")
   while(nombres != "ESC" ){
       switch (nombres) {
           case "Instituto Adventista Cordoba":
@@ -51,10 +51,10 @@ let formaPago = parseInt(prompt("En que forma van a querer abonar?: \n1. Si abon
 while (formaPago !="ESC" ){
 switch(pago) {
     case 1:        
-        alert ("Muchas gracias por su pago, nos vemos en la fiesta!, el total es: $ " +total *porcentajeDescuento1);
+        alert ("Muchas gracias por su pago, nos vemos en la fiesta!, el total es: $ " +total *porcentajeDescuento1 - total);
         break;
     case 2:        
-        alert ("Muchas gracias por su pago, nos vemos en la fiesta!, el total es: $ " +total * porcentajeDescuento2);
+        alert ("Muchas gracias por su pago, nos vemos en la fiesta!, el total es: $ " +total * porcentajeDescuento2 - total);
         break;
     case 3:        
         alert ("Muchas gracias por su pago, nos vemos en la fiesta!, el total es: $ " +total);

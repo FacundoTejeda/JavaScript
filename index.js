@@ -46,21 +46,8 @@
     return cantidad * sesionEgresados;
  }
 let  total = calculo (cantidad, sesionEgresados)
-alert ("El total a abonar es de: $" +total)
+alert ("El total a abonar es de: $" + total)
  
-let porcentajeDescuento1 = 0.15;
-let porcentajeDescuento2 = 0.05;
-
-function precioFinal1 (total, porcentajeDescuento1){
-return (total - (total * porcentajeDescuento1)) 
-}
-let precioFinal_1 = precioFinal1 ()
-
-function precioFinal2 (total, porcentajeDescuento2){
-    return (total - (total * porcentajeDescuento2)) 
-    }
-let precioFinal_2 = precioFinal2()
-
 
 let formaPago = parseInt(prompt("En que forma van a querer abonar?: \n1. Si abonan en una cuota tienen un (15% de descuento) \n2. Si abonan en 3 cuotas tienen un (5% de descuento) \n3. Si abonan en 6 cuotas no tienen descuento" ))
 switch(formaPago) {
@@ -78,6 +65,16 @@ switch(formaPago) {
         break;
 }
 
+let porcentajeDescuento1 = 0.15;
+let porcentajeDescuento2 = 0.05;
 
-
+function precioFinal1 (total, porcentajeDescuento1){
+    return (total - (total * porcentajeDescuento1))          
+    }
+    let precioFinal_1 = precioFinal1 ()
+    
+    function precioFinal2 (total, porcentajeDescuento2){
+        return (total - (total * porcentajeDescuento2)) 
+        }
+    let precioFinal_2 = precioFinal2()
 

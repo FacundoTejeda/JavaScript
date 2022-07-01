@@ -135,8 +135,10 @@ const egresados = [
 
 
 const nombreFamilia = prompt("Ingrese el apellido de su familia")
-const familiaConfirmada = egresados.find((familia) => familia.apellido.toLowerCase() === nombreFamilia.toLowerCase)
+const familiaConfirmada = egresados.find((familia) => familia.apellido.toLowerCase() === nombreFamilia.toLowerCase())
 console.log("La familia esta inscripta " + familiaConfirmada)
+
+
 
 
 // const menorPrecio = egresados.filter((familia) => familias.precio < 4000);

@@ -129,22 +129,37 @@ const egresados = [
     {apellido:"cerri", cantidad: 5, precio:5000 },
 ]; 
 
+
+const total = egresados.reduce(
+    (acumulador, elemento) => acumulador + elemento.cantidad,
+    0
+);
+
+alert("La cantidad de personas a fotografiar es: "+ total)
+
+
+
+
 //  let familiasInscriptas = egresados.some ((familia) => familia.egresados === "Azaña");
 //  familiasInscriptas = egresados.some ((familia) => familia.egresados === "Rotela");
-// //console.log ("Existe? "+ familiasInscriptas)
+// //console.log (familiasInscriptas)
 
 
-const nombreFamilia = prompt("Ingrese el apellido de su familia")
-const familiaConfirmada = egresados.find((familia) => familia.apellido.toLowerCase() === nombreFamilia.toLowerCase())
-console.log("La familia esta inscripta " + familiaConfirmada)
+// const nombreFamilia = prompt("Ingrese el apellido de su familia")
+// const familiaConfirmada = egresados.find((familia) => familia.apellido.toLowerCase() === nombreFamilia.toLowerCase())
+// console.log(familiaConfirmada)
 
 
 
+//  const precios = egresados.map((familia) => familia.cantidad)
+//  console.log(precios)
 
-// const menorPrecio = egresados.filter((familia) => familias.precio < 4000);
+
+
+// const menorPrecio = egresados.filter((familia) => famili.precio < 4000);
 //console.log ("Cuales son las familias que pagan menos? "+ menorPrecio)
 
-// const listaFamilias = egresados.map((familia) => familias.familia);
+// const listaFamilias = egresados.map((familia) => familia.apellido);
 // console.log(listaFamilias)
 
 // //

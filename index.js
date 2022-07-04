@@ -15,30 +15,17 @@
 //    while(i<=10)
  
 
-
 let ingreso = prompt("Estas buscando cobertura para: \n1.Familias  \n2.Colegio")
-   while(ingreso !="" ){
+   while(ingreso !="ESC" ){
         switch (ingreso) {
-          case "1":
-                 let lastName1 = prompt("Ingresá el apellido de tu familia")
-                 let cantidadFamilia1 = parseFloat(prompt("Cuantos integrantes van a asistir?"))
-                 alert ("Bienvenida familia " +lastName1 + "Ustedes son " + cantidadFamilia1)           
-                break; 
-                 let lastName2 = prompt("Ingresá el apellido de tu familia")
-                 let cantidadFamilia2 = parseFloat(prompt("Cuantos integrantes van a asistir?"))
-                 alert ("Bienvenida familia " +lastName2 + "Ustedes son " + cantidadFamilia2)   
-                break;
-                 let lastName3 = prompt("Ingresá el apellido de tu familia")
-                 let cantidadFamilia3 = parseFloat(prompt("Cuantos integrantes van a asistir?"))
-                 alert ("Bienvenida familia " +lastName3 + "Ustedes son " + cantidadFamilia3)     
-                 let lastName4 = prompt("Ingresá el apellido de tu familia")
-            break;
-                 let cantidadFamilia4 = parseFloat(prompt("Cuantos integrantes van a asistir?"))
-                 alert ("Bienvenida familia " +lastName4 + "Ustedes son " + cantidadFamilia4)     
-                break;
+          case "1": 
+          let lastName1 = prompt("Ingresá el apellido de tu familia")
+          let cantidadFamilia1 = parseFloat(prompt("Cuantos integrantes van a asistir?"))
+          alert ("Bienvenida familia " +lastName1 + " Ustedes son " + cantidadFamilia1)  
+          break;      
            case "2":
                 let nombres = prompt("Ingresa el nombre de tu colegio: \n1.Instituto Adventista Cordoba,  \n2.Instituto Adventista Balcarce,  \n3.Instituto Adventista Santa Fe")
-            while(nombres !="" ){
+            while(nombres !="ESC" ){
          switch (nombres) {
             case "1":
                 alert ("Hola chicos de Cordoba");
@@ -207,11 +194,11 @@ console.log(listaFamilias)
 const numeros = [1,2,3,40,24,33];
 
 function sumaPorCondicion(array, funcionTest) {
-    let total = 0
+    let totalSuma = 0
 
     for (const elemento of array){
         if(funcionTest(elemento)){
-            total += elemento
+            totalSuma += elemento
         }
     }
     return total
@@ -224,5 +211,5 @@ const condicionParaSuma = (numero) => {
         return false
     }
 }
-let total = sumaPorCondicion(numeros, condicionParaSuma)
-alert("el total es de:" + total)
+let totalSumaPorCondicion = sumaPorCondicion(numeros, condicionParaSuma)
+alert("el total es de:" + totalSumaPorCondicion)

@@ -23,16 +23,16 @@ let ingreso = prompt("Estas buscando cobertura para: \n1.Familias  \n2.Colegio")
                  let lastName1 = prompt("Ingresá el apellido de tu familia")
                  let cantidadFamilia1 = parseFloat(prompt("Cuantos integrantes van a asistir?"))
                  alert ("Bienvenida familia " +lastName1 + "Ustedes son " + cantidadFamilia1)           
-                 
+                break; 
                  let lastName2 = prompt("Ingresá el apellido de tu familia")
                  let cantidadFamilia2 = parseFloat(prompt("Cuantos integrantes van a asistir?"))
                  alert ("Bienvenida familia " +lastName2 + "Ustedes son " + cantidadFamilia2)   
-
+                break;
                  let lastName3 = prompt("Ingresá el apellido de tu familia")
                  let cantidadFamilia3 = parseFloat(prompt("Cuantos integrantes van a asistir?"))
                  alert ("Bienvenida familia " +lastName3 + "Ustedes son " + cantidadFamilia3)     
                  let lastName4 = prompt("Ingresá el apellido de tu familia")
-
+            break;
                  let cantidadFamilia4 = parseFloat(prompt("Cuantos integrantes van a asistir?"))
                  alert ("Bienvenida familia " +lastName4 + "Ustedes son " + cantidadFamilia4)     
                 break;
@@ -42,16 +42,16 @@ let ingreso = prompt("Estas buscando cobertura para: \n1.Familias  \n2.Colegio")
          switch (nombres) {
             case "1":
                 alert ("Hola chicos de Cordoba");
-                break;
+          break;
             case "2":
                 alert ("Hola chicos de Balcarce");
-                break;
+           break;
             case "3":
                 alert ("Hola chicos de Santa Fe");
-                break;
+            break;
             default:
                 alert ("De que cole sos?");
-               break;       
+            break;       
        }
         nombres = prompt ("Ingresa tu colegio");
         break;        
@@ -83,16 +83,16 @@ let ingreso = prompt("Estas buscando cobertura para: \n1.Familias  \n2.Colegio")
   switch(formaPago) {
       case 1:      
           alert("Muchas gracias por su pago, nos vemos en la fiesta!, el total es: $ " + precioFinal_1);
-          break;
+      break;
       case 2:        
           alert("Muchas gracias por su pago, nos vemos en la fiesta!, el total es: $ " + precioFinal_2);
-          break;
+     break;
       case 3:        
           alert("Muchas gracias por su pago, nos vemos en la fiesta!, el total es: $ " + total);
-          break;
+     break;
       default:
           alert("Si estas buscando otra financiacion escribinos por privado");
-          break;
+     break;
   }
 
 
@@ -100,7 +100,7 @@ let ingreso = prompt("Estas buscando cobertura para: \n1.Familias  \n2.Colegio")
 
   let precioCantidad = 2500
 
-    const egresados = [
+    const familiaresEgresados = [
         {apellido: lastName1, cantidad: cantidadFamilia1, precio:cantidadFamilia1 *precioCantidad },
         {apellido: lastName2, cantidad: cantidadFamilia2, precio:cantidadFamilia2 *precioCantidad },
         {apellido: lastName3, cantidad: cantidadFamilia3, precio:cantidadFamilia3 *precioCantidad },
@@ -109,60 +109,61 @@ let ingreso = prompt("Estas buscando cobertura para: \n1.Familias  \n2.Colegio")
     ]; 
     
     
-//     const cantidadTotal = egresados.reduce(
-//         (acumulador, elemento) => acumulador + elemento.cantidad,
-//         0
-//     );
+    const cantidadTotal = familiaresEgresados.reduce(
+        (acumulador, elemento) => acumulador + elemento.cantidad,
+        0
+    );
+
     
-//     alert("La cantidad de personas a fotografiar es: "+ cantidadTotal)
+    alert("La cantidad de personas a fotografiar es: "+ cantidadTotal)
 
 
 
 
 
-// class Producto{
-//     constructor(nombre, precioCompra, precioVenta, cantidad){
-//         this.nombre = nombre.toUpperCase()
-//         this.precioCompra = precioCompra
-//         this.precioVenta = precioVenta
-//         this.cantidad = cantidad
-//     }
-// }
-// Esta funcion es para que los fotografos ingresen sus sesiones hechas
+class Producto{
+    constructor(nombre, precioCompra, precioVenta, cantidad){
+        this.nombre = nombre.toUpperCase()
+        this.precioCompra = precioCompra
+        this.precioVenta = precioVenta
+        this.cantidad = cantidad
+    }
+}
+//Esta funcion es para que los fotografos ingresen sus sesiones hechas
 
-// function agregarProductos(){
-//     let numeroSesiones = parseInt(prompt("Cuantas sesiones necesita ingresar"))
-//     let sesiones = []
+function agregarProductos(){
+    let numeroSesiones = parseInt(prompt("Cuantas sesiones necesita ingresar"))
+    let sesiones = []
 
-//     for(let index = 0; index < numeroSesiones; index++){
-//         let nombre = prompt ("Ingrese su nombre")
-//         let precioCompra0 = parseFloat(prompt("Ingrese el precio de compra de los materiales"))
-//         let precioVenta0 = parseFloat(prompt("Ingrese el precio venta final"))
-//         let cantidad0 = parseInt(prompt("Ingrese la cantidad de egresados"))
+    for(let index = 0; index < numeroSesiones; index++){
+        let nombre = prompt ("Ingrese su nombre")
+        let precioCompra0 = parseFloat(prompt("Ingrese el precio de compra de los materiales"))
+        let precioVenta0 = parseFloat(prompt("Ingrese el precio venta final"))
+        let cantidad0 = parseInt(prompt("Ingrese la cantidad de egresados"))
 
-//         let sesionARegistrar = new Producto(nombre, precioCompra0, precioVenta0, cantidad0)
-//         sesiones.push(sesionARegistrar)
-//     }
+        let sesionARegistrar = new Producto(nombre, precioCompra0, precioVenta0, cantidad0)
+        sesiones.push(sesionARegistrar)
+    }
 
-//     let productoNuevo = new Producto ("Producto 2", 100, 2000, 22)
+    let productoNuevo = new Producto ("Producto 2", 100, 2000, 22)
     
-//      sesiones.unshift(productoNuevo)
+     sesiones.unshift(productoNuevo)
 
-// return sesiones
-// }
+return sesiones
+}
 
-// function mostrarSesiones(sesiones){
-//     for(const sesion of sesiones){
-//         console.log(sesiones)
-//         console.log(sesiones.nombre)
-//     }
-// }
+function mostrarSesiones(sesiones){
+    for(const sesion of sesiones){
+        console.log(sesiones)
+        console.log(sesiones.nombre)
+    }
+}
 
-// function main(){
-//     let sesionesRegistradas = agregarProductos()
-//     mostrarSesiones(sesionesRegistradas)
-// }
-// main()
+function main(){
+    let sesionesRegistradas = agregarProductos()
+    mostrarSesiones(sesionesRegistradas)
+}
+main()
 
 // //forEach
 
@@ -179,49 +180,49 @@ let ingreso = prompt("Estas buscando cobertura para: \n1.Familias  \n2.Colegio")
 
 
 
-//  let familiasInscriptas = egresados.some ((familia) => familia.egresados === "Azaña");
-//  familiasInscriptas = egresados.some ((familia) => familia.egresados === "Rotela");
-// //console.log (familiasInscriptas)
+ let familiasInscriptas = egresados.some ((familia) => familia.egresados === "Azaña");
+ familiasInscriptas = egresados.some ((familia) => familia.egresados === "Rotela");
+//console.log (familiasInscriptas)
 
 
-// const nombreFamilia = prompt("Ingrese el apellido de su familia")
-// const familiaConfirmada = egresados.find((familia) => familia.apellido.toLowerCase() === nombreFamilia.toLowerCase())
-// console.log(familiaConfirmada)
-
-
-
-//  const precios = egresados.map((familia) => familia.cantidad)
-//  console.log(precios)
+const nombreFamilia = prompt("Ingrese el apellido de su familia")
+const familiaConfirmada = egresados.find((familia) => familia.apellido.toLowerCase() === nombreFamilia.toLowerCase())
+console.log(familiaConfirmada)
 
 
 
-// const menorPrecio = egresados.filter((familia) => famili.precio < 4000);
-//console.log ("Cuales son las familias que pagan menos? "+ menorPrecio)
+ const precios = egresados.map((familia) => familia.cantidad)
+ console.log(precios)
 
-// const listaFamilias = egresados.map((familia) => familia.apellido);
-// console.log(listaFamilias)
 
-// //   
 
-// const numeros = [1,2,3,40,24,33];
+const menorPrecio = egresados.filter((familia) => famili.precio < 4000);
+console.log ("Cuales son las familias que pagan menos? "+ menorPrecio)
 
-// function sumaPorCondicion(array, funcionTest) {
-//     let total = 0
+const listaFamilias = egresados.map((familia) => familia.apellido);
+console.log(listaFamilias)
 
-//     for (const elemento of array){
-//         if(funcionTest(elemento)){
-//             total += elemento
-//         }
-//     }
-//     return total
-// }
+//   
 
-// const condicionParaSuma = (numero) => {
-//     if(numero > 10){
-//         return true
-//     }else{
-//         return false
-//     }
-// }
-// let total = sumaPorCondicion(numeros, condicionParaSuma)
-// alert("el total es de:" + total)
+const numeros = [1,2,3,40,24,33];
+
+function sumaPorCondicion(array, funcionTest) {
+    let total = 0
+
+    for (const elemento of array){
+        if(funcionTest(elemento)){
+            total += elemento
+        }
+    }
+    return total
+}
+
+const condicionParaSuma = (numero) => {
+    if(numero > 10){
+        return true
+    }else{
+        return false
+    }
+}
+let total = sumaPorCondicion(numeros, condicionParaSuma)
+alert("el total es de:" + total)

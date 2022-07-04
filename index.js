@@ -16,16 +16,19 @@
  
 
 let ingreso = prompt("Estas buscando cobertura para: \n1.Familias  \n2.Colegio")
-   while(ingreso !="ESC" ){
         switch (ingreso) {
-          case "1": 
-          let lastName1 = prompt("Ingresá el apellido de tu familia")
-          let cantidadFamilia1 = parseFloat(prompt("Cuantos integrantes van a asistir?"))
-          alert ("Bienvenida familia " +lastName1 + " Ustedes son " + cantidadFamilia1)  
+          case "1":  
+                let lastName1 = prompt("Ingresá el apellido de tu familia")
+                cantidadFamilia1 = parseInt(prompt("Cuantos integrantes van a asistir?"))
+                alert("Bienvenida familia "+lastName1)
+
+                let lastName2 = prompt("Ingresá el apellido de tu familia")
+                cantidadFamilia2 = parseInt(prompt("Cuantos integrantes van a asistir?"))
+                alert("Bienvenida familia "+lastName2)
           break;      
            case "2":
                 let nombres = prompt("Ingresa el nombre de tu colegio: \n1.Instituto Adventista Cordoba,  \n2.Instituto Adventista Balcarce,  \n3.Instituto Adventista Santa Fe")
-            while(nombres !="ESC" ){
+          
          switch (nombres) {
             case "1":
                 alert ("Hola chicos de Cordoba");
@@ -43,8 +46,7 @@ let ingreso = prompt("Estas buscando cobertura para: \n1.Familias  \n2.Colegio")
         nombres = prompt ("Ingresa tu colegio");
         break;        
     }
-    }
-    }
+    
 
     const sesionEgresados = 10000
     let cantidad = parseInt(prompt("Ingresar cantidad de alumnos que quieren la sesion (Hay descuentos por cantidad): "))
@@ -81,8 +83,7 @@ let ingreso = prompt("Estas buscando cobertura para: \n1.Familias  \n2.Colegio")
           alert("Si estas buscando otra financiacion escribinos por privado");
      break;
   }
-
-
+ 
 
 
   let precioCantidad = 2500
@@ -90,9 +91,7 @@ let ingreso = prompt("Estas buscando cobertura para: \n1.Familias  \n2.Colegio")
     const familiaresEgresados = [
         {apellido: lastName1, cantidad: cantidadFamilia1, precio:cantidadFamilia1 *precioCantidad },
         {apellido: lastName2, cantidad: cantidadFamilia2, precio:cantidadFamilia2 *precioCantidad },
-        {apellido: lastName3, cantidad: cantidadFamilia3, precio:cantidadFamilia3 *precioCantidad },
-        {apellido: lastName4, cantidad: cantidadFamilia4, precio:cantidadFamilia4 *precioCantidad },
-        
+         
     ]; 
     
     
@@ -151,17 +150,6 @@ function main(){
     mostrarSesiones(sesionesRegistradas)
 }
 main()
-
-// //forEach
-
-// const numeros = [1,2,3,4,5,6]
-
-// numeros.forEach ((numeros) =>{
-// alert ()
-
-// })
-
-
 
 
 

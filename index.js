@@ -65,7 +65,7 @@ let ingreso = prompt("Estas buscando cobertura para: \n1.Familias  \n2.Colegio")
       totalPrecio.innerHTML =`
          <div class="precioFinal">
             <h2> Pago con el 15% de descuento</h2>
-            <p>$${precioFinal1.precioFinal_1}</p>
+            <p>$${precioFinal_1}</p>
          </div>               
          `
          totalPrecio.append(elPrecioFinal)
@@ -75,7 +75,7 @@ let ingreso = prompt("Estas buscando cobertura para: \n1.Familias  \n2.Colegio")
          totalPrecio.innerHTML =`
          <div class="precioFinal">
             <h2> Pago con el 15% de descuento</h2>
-            <p>$${precioFinal2.precioFinal_2}</p>
+            <p>$${precioFinal_2}</p>
          </div>               
          `
          totalPrecio.append(elPrecioFinal2)       

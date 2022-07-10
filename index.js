@@ -60,8 +60,8 @@ function validarFormularioAlumno(event){
     
     let totalCurso = cantidad * precioPorAlumno
 
-    let productosA = new productosColegio(curso, cantidad, precioPorAlumno)
-    productosA.push(productosColegio)
+    let productos1 = new productosColegio(curso, cantidad, precioPorAlumno)
+    productosColegio.push(productos1)
 
     formularioAlumnos.reset();
     console.log(totalCurso)
@@ -149,6 +149,7 @@ class Productos{
     this.precioVenta = precioVenta;
   }
 }
+
 formularioFotografos.onsubmit = (event) => validarFormularioFotografo(event);
 
 function validarFormularioFotografo(event){
@@ -159,7 +160,7 @@ function validarFormularioFotografo(event){
     let precioVenta = inputPrecioVentaFotografo.value;
 
     let producto = new Productos(apellido, cantidad, precioGastos, precioVenta)
-    producto.push(Productos)
+    productos.push(producto)
 
     formularioFotografos.reset();
  
@@ -176,64 +177,6 @@ function main(){
     mostrarSesiones(productosFotografo)
 }
 main()
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const menorPrecio = egresados.filter((familia) => famili.precio < 4000);
-// console.log ("Cuales son las familias que pagan menos? "+ menorPrecio)
-
-// const listaFamilias = egresados.map((familia) => familia.apellido);
-// console.log(listaFamilias)
-
-// //   
-
-// const numeros = [1,2,3,40,24,33];
-
-// function sumaPorCondicion(array, funcionTest) {
-//     let totalSuma = 0
-
-//     for (const elemento of array){
-//         if(funcionTest(elemento)){
-//             totalSuma += elemento
-//         }
-//     }
-//     return total
-// }
-
-// const condicionParaSuma = (numero) => {
-//     if(numero > 10){
-//         return true
-//     }else{
-//         return false
-//     }
-// }
-// let totalSumaPorCondicion = sumaPorCondicion(numeros, condicionParaSuma)
-// alert("el total es de:" + totalSumaPorCondicion)
-
-
-// let contenedor = document.getElementById("contenedor-uno")
-// let parrafos = document.getElementById("parrafo1")
-// console.log(contenedor)
-// console.log(contenedor.innerHTML)
-
-// //get element by class/
-// let listaContenedores = document.getElementsByClassName("contenedor-dos")
-
-// console.log(listaContenedores)
-
-// for(const elemento of listaContenedores){
-//     console.log(elemento.inner)
-// }
 
 // //inner text
 // let parrafo = document.getElementById("parrafo1")

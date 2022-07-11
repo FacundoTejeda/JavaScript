@@ -61,7 +61,7 @@ function validarFormularioAlumno(event){
     let totalCurso = cantidad * precioPorAlumno
 
     let productos1 = new productosColegio(curso, cantidad, precioPorAlumno)
-    productosColegio.push(productos1)
+    productos1.push(productosColegio)
 
     formularioAlumnos.reset();
     console.log(totalCurso)

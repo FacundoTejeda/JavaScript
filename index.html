@@ -81,14 +81,14 @@
 
 <h5>Totales a abonar</h5>
 <div id="totalPrecio"> El total a pagar es $20000
-</div> -->
-  <!-- 
+</div> 
+  
 Ejemplo uno eventos -->
-  <!-- <div class="container mt-3">
+   <div class="container mt-3">
     <div>
       <h3>Ejemplo uno</h3>
 
-      <div class="row">
+      <div class="column">
         <div class="col-md-4">
           <button class="btn btn-primary" id="btnEventoUno"> Familias
           </button>
@@ -103,15 +103,7 @@ Ejemplo uno eventos -->
                 <label for="" class="form-label"> Ingrese la cantidad de familiares </label>
                 <input class="from-control" id="cantidad" type="number">
               </div>
-              <div class="mb-3">
-                <label for="" class="form-label"> Ingrese precio de gastos </label>
-                <input class="from-control" id="precioGastosFotografo" type="number">
-              </div>
-              <div class="mb-3">
-                <label for="" class="form-label"> Ingrese precio cobrado </label>
-                <input class="from-control" id="precioVentaFotografo" type="number">
-              </div>
-
+             
               <div class="mb-3">
                 <button type="submit" class="btn btn-primary"> Ingresar</button>
               </div>
@@ -120,13 +112,13 @@ Ejemplo uno eventos -->
 
           <h5>Familias</h5>
           <div id="totalFamilias"> Bienvenida familia!</div>
-        </div> -->
+        </div> 
 
         <div class="col-md-4">
           <button class="btn btn-primary" id="btnEventoDos">Egresados
           </button>
           <div class="container">
-            <h3>Familias </h3>
+            <h3>Egresados </h3>
             <form id="formularioAlumnos">
               <div class="mb-3">
                 <label for="" class="form-label"> Ingrese su curso(en letras) y colegio </label>
@@ -140,14 +132,21 @@ Ejemplo uno eventos -->
                 <button type="submit" class="btn btn-primary"> Ingresar</button>
               </div>
         </div>
-        <div class="col-md-4">
+        <label for="formaPago"> Forma de pago: </label>
+        <select  id="formaPago">
+            <option value="UnaC"> 1 cuota: </option>
+            <option value="TresC"> 3 cuotas: </option>
+            <option value="SeisC"> 6 o mas cuotas: </option>
+        </select>
+
+        <!-- <div class="col-md-4">
           <button class="btn btn-primary">Ejemplo tres
 
           </button>
-        </div>
-      </div>
-    </div>
-    }
+        </div> -->
+      
+    
+    
 
     <div class="container">
       <h3>Para fotografos </h3>

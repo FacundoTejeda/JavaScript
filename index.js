@@ -61,48 +61,60 @@ function validarFormularioAlumno(event){
     let totalCurso = cantidad * precioPorAlumno
 
     let productos1 = new productosColegio(curso, cantidad, precioPorAlumno)
-    productos1.push(productosColegio)
+    productosAlumnos.push(productos1)
 
     formularioAlumnos.reset();
     console.log(totalCurso)
 }
-//     const sesionEgresados = 10000
 
-//     let cantidad = parseInt(prompt("Ingresar cantidad de alumnos que quieren la sesion (Hay descuentos por cantidad): "))
-//     function  calculo(cantidad, sesionEgresados){
-//        return cantidad * sesionEgresados;
-//     }
-//    let total = calculo(cantidad, sesionEgresados)
-//    alert("El total a abonar es de: $" + total)
-  
-//   let porcentajeDescuento1 = parseFloat(0.15)
-//   let porcentajeDescuento2 = parseFloat(0.05)
 
-//  function precioFinal1(total, porcentajeDescuento1){
-//       return(total - (total * porcentajeDescuento1))          
-//       }
-//       let precioFinal_1 =  precioFinal1(total, porcentajeDescuento1)
-     
-//       function precioFinal2(total, porcentajeDescuento2){
-//           return(total - (total * porcentajeDescuento2)) 
-//           }
-//       let precioFinal_2 =  precioFinal2(total, porcentajeDescuento2)
+let formaDePago = document.getElementById("formaPago")
+let UnaCuota = document.getElementById("UnaC")
+let TresCuota = document.getElementById("TresC")
+let SeisCuota = document.getElementById("SeisC")
+
+console.log(unaC.innerText)
+unaC.innerText ="El pago en una cuota es de: " + precioFinal_1
+
+console.log(TresC.innerText)
+TresC.innerText ="El pago en una cuota es de: " + precioFinal_2
+
+console.log(SeisC.innerText)
+SeisC.innerText ="El pago en una cuota es de: " + total
+
+    function  calculo(cantidad, sesionEgresados){
+       return cantidad * sesionEgresados;
+    }
+   let total = calculo(cantidad, sesionEgresados)
  
-//       let totalPrecio = document.getElementById("totalPrecio")
-//       console.log(totalPrecio.innerHTML)
+  
+  let porcentajeDescuento1 = parseFloat(0.15)
+  let porcentajeDescuento2 = parseFloat(0.05)
+
+ function precioFinal1(total, porcentajeDescuento1){
+      return(total - (total * porcentajeDescuento1))          
+      }
+      let precioFinal_1 =  precioFinal1(total, porcentajeDescuento1)
+     
+      function precioFinal2(total, porcentajeDescuento2){
+          return(total - (total * porcentajeDescuento2)) 
+          }
+      let precioFinal_2 =  precioFinal2(total, porcentajeDescuento2)
+ 
+      let totalPrecio = document.getElementById("totalPrecio")
+      console.log(totalPrecio.innerHTML)
      
       
-//   let formaPago = parseInt(prompt("En que forma van a querer abonar?: \n1. Si abonan en una cuota tienen un (15% de descuento) \n2. Si abonan en 3 cuotas tienen un (5% de descuento) \n3. Si abonan en 6 cuotas no tienen descuento" ))
-//   switch(formaPago) {
-//       case 1:      
-//       let elPrecioFinal  = document.createElement("div")
-//       totalPrecio.innerHTML =`
-//          <div class="precioFinal">
-//             <h2> Pago con el 15% de descuento</h2>
-//             <p>$${precioFinal_1}</p>
-//          </div>               
-//          `
-//          totalPrecio.append(elPrecioFinal)
+
+         
+      let elPrecioFinal  = document.createElement("div")
+      totalPrecio.innerHTML =`
+         <div class="precioFinal">
+            <h2> Pago con el 15% de descuento</h2>
+            <p>$${precioFinal_1}</p>
+         </div>               
+         `
+         totalPrecio.append(elPrecioFinal)
 //       break;
 //       case 2: 
 //          let elPrecioFinal2  = document.createElement("div")
@@ -160,23 +172,23 @@ function validarFormularioFotografo(event){
     let precioVenta = inputPrecioVentaFotografo.value;
 
     let producto = new Productos(apellido, cantidad, precioGastos, precioVenta)
-    productos.push(producto)
+    productosFotografo.push(producto)
 
     formularioFotografos.reset();
  
 }
 
-function mostrarSesiones(cantidad){
-    for(const cantidad of inputCantidad){
-        console.log(cantidad)
-        console.log(Productos.apellido)
-    }
-}
+// function mostrarSesiones(formularioFotografos){
+//     for(const cantidad of cantidad){
+//         console.log(cantidad)
+        
+//     }
+// }
 
-function main(){
-    mostrarSesiones(productosFotografo)
-}
-main()
+// function main(){
+//     mostrarSesiones(productosFotografo)
+// }
+// main()
 
 // //inner text
 // let parrafo = document.getElementById("parrafo1")

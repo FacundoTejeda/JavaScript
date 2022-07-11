@@ -1,38 +1,38 @@
-// let formulario = document.getElementById("formulario")
-// let nombreFamilia = document.getElementById("inputApellido")
-// let cantidad = document.getElementById("number")
-// formulario.onsubmit = (event) => validarFormulario(event)
+let formulario = document.getElementById("formulario")
+let nombreFamilia = document.getElementById("inputApellido")
+let cantidad = document.getElementById("number")
+formulario.onsubmit = (event) => validarFormulario(event)
 
-// function validarFormulario(event) {
-//     event.preventDefault()
-//     console.log(event)
-//     console.log("se ejecuto formulario")
-// }
-// let bienvenidaFamiliares  = document.createElement("div")
-//       totalFamilias.innerHTML =`
-//          <div class="saludoFamiliares">
-//             <h2> Bienvenida Familia!</h2>
-//             <p>${nombreFamilia}</p>
-//          </div>               
-//          `
-//          totalFamilias.append(bienvenidaFamiliares)
+function validarFormulario(event) {
+    event.preventDefault()
+    console.log(event)
+    console.log("se ejecuto formulario")
+}
+let bienvenidaFamiliares  = document.createElement("div")
+      totalFamilias.innerHTML =`
+         <div class="saludoFamiliares">
+            <h2> Bienvenida Familia!</h2>
+            <p>${nombreFamilia}</p>
+         </div>               
+         `
+         totalFamilias.append(bienvenidaFamiliares)
 
  
-//   let precioCantidad = 3000
+  let precioCantidad = 3000
 
-//     const familiaresEgresados = [
-//         {apellido: inputApellido, cantidad: cantidad, precio:cantidad *precioCantidad },
-//         // {apellido: apellido1, cantidad: cantidadFamilia2, precio:cantidadFamilia2 *precioCantidad },
+    const familiaresEgresados = [
+        {apellido: inputApellido, cantidad: cantidad, precio:cantidad *precioCantidad },
+        // {apellido: apellido1, cantidad: cantidadFamilia2, precio:cantidadFamilia2 *precioCantidad },
          
-//     ]; 
+    ]; 
     
     
-//     const cantidadTotal = familiaresEgresados.reduce(
-//         (acumulador, elemento) => acumulador + elemento.cantidad,
-//         0
-//     );
+    const cantidadTotal = familiaresEgresados.reduce(
+        (acumulador, elemento) => acumulador + elemento.cantidad,
+        0
+    );
     
-//     console.log("La cantidad de personas a fotografiar es: "+ cantidadTotal)
+    console.log("La cantidad de personas a fotografiar es: "+ cantidadTotal)
 
 
  
@@ -68,53 +68,53 @@ function validarFormularioAlumno(event){
 }
 
 
-let formaDePago = document.getElementById("formaPago")
-let UnaCuota = document.getElementById("UnaC")
-let TresCuota = document.getElementById("TresC")
-let SeisCuota = document.getElementById("SeisC")
+// let formaDePago = document.getElementById("formaPago")
+// let UnaCuota = document.getElementById("UnaC")
+// let TresCuota = document.getElementById("TresC")
+// let SeisCuota = document.getElementById("SeisC")
 
-console.log(unaC.innerText)
-unaC.innerText ="El pago en una cuota es de: " + precioFinal_1
+// console.log(unaC.innerText)
+// unaC.innerText ="El pago en una cuota es de: " + precioFinal_1
 
-console.log(TresC.innerText)
-TresC.innerText ="El pago en una cuota es de: " + precioFinal_2
+// console.log(TresC.innerText)
+// TresC.innerText ="El pago en una cuota es de: " + precioFinal_2
 
-console.log(SeisC.innerText)
-SeisC.innerText ="El pago en una cuota es de: " + total
+// console.log(SeisC.innerText)
+// SeisC.innerText ="El pago en una cuota es de: " + total
 
-    function  calculo(cantidad, sesionEgresados){
-       return cantidad * sesionEgresados;
-    }
-   let total = calculo(cantidad, sesionEgresados)
+//     function  calculo(cantidad, sesionEgresados){
+//        return cantidad * sesionEgresados;
+//     }
+//    let total = calculo(cantidad, sesionEgresados)
  
   
-  let porcentajeDescuento1 = parseFloat(0.15)
-  let porcentajeDescuento2 = parseFloat(0.05)
+//   let porcentajeDescuento1 = parseFloat(0.15)
+//   let porcentajeDescuento2 = parseFloat(0.05)
 
- function precioFinal1(total, porcentajeDescuento1){
-      return(total - (total * porcentajeDescuento1))          
-      }
-      let precioFinal_1 =  precioFinal1(total, porcentajeDescuento1)
+//  function precioFinal1(total, porcentajeDescuento1){
+//       return(total - (total * porcentajeDescuento1))          
+//       }
+//       let precioFinal_1 =  precioFinal1(total, porcentajeDescuento1)
      
-      function precioFinal2(total, porcentajeDescuento2){
-          return(total - (total * porcentajeDescuento2)) 
-          }
-      let precioFinal_2 =  precioFinal2(total, porcentajeDescuento2)
+//       function precioFinal2(total, porcentajeDescuento2){
+//           return(total - (total * porcentajeDescuento2)) 
+//           }
+//       let precioFinal_2 =  precioFinal2(total, porcentajeDescuento2)
  
-      let totalPrecio = document.getElementById("totalPrecio")
-      console.log(totalPrecio.innerHTML)
+//       let totalPrecio = document.getElementById("totalPrecio")
+//       console.log(totalPrecio.innerHTML)
      
       
 
          
-      let elPrecioFinal  = document.createElement("div")
-      totalPrecio.innerHTML =`
-         <div class="precioFinal">
-            <h2> Pago con el 15% de descuento</h2>
-            <p>$${precioFinal_1}</p>
-         </div>               
-         `
-         totalPrecio.append(elPrecioFinal)
+//       let elPrecioFinal  = document.createElement("div")
+//       totalPrecio.innerHTML =`
+//          <div class="precioFinal">
+//             <h2> Pago con el 15% de descuento</h2>
+//             <p>$${precioFinal_1}</p>
+//          </div>               
+//          `
+//          totalPrecio.append(elPrecioFinal)
 //       break;
 //       case 2: 
 //          let elPrecioFinal2  = document.createElement("div")
@@ -191,68 +191,68 @@ function validarFormularioFotografo(event){
 // main()
 
 // //inner text
-// let parrafo = document.getElementById("parrafo1")
-// console.log(parrafo.innerText)
-// parrafo.innerText="Est es la descripcion modificada"
-// console.log(parrafo.innerText)
+let parrafo = document.getElementById("parrafo1")
+console.log(parrafo.innerText)
+parrafo.innerText="Est es la descripcion modificada"
+console.log(parrafo.innerText)
 
 
 
-// //
-// let inputEmail = document.getElementById("inputEmail")
-// let inputContrasenia = document.getElementById("inputContrasenia")
+//
+let inputEmail = document.getElementById("inputEmail")
+let inputContrasenia = document.getElementById("inputContrasenia")
 
-// console.log(inputEmail.value)
-// inputEmail.value = "facudotejeda3@gmail.com"
-// console.log(inputEmail.value)
+console.log(inputEmail.value)
+inputEmail.value = "facudotejeda3@gmail.com"
+console.log(inputEmail.value)
 
-// const listaProductos = [
-// {
-//     id:1,
-//     nombre: "Graduacion",
-//     precioGastos: "1000",
-//     precioSesion: "5000",
-// },
-// {
-//     id:2,
-//     nombre: "Fiesta",
-//     precioGastos: "900",
-//     precioSesion: "6000",
-// },
-// {
-//     id:3,
-//     nombre: "Familiar",
-//     precioGastos: "400",
-//     precioSesion: "2500",
-// },
-// ];   
+const listaProductos = [
+{
+    id:1,
+    nombre: "Graduacion",
+    precioGastos: "1000",
+    precioSesion: "5000",
+},
+{
+    id:2,
+    nombre: "Fiesta",
+    precioGastos: "900",
+    precioSesion: "6000",
+},
+{
+    id:3,
+    nombre: "Familiar",
+    precioGastos: "400",
+    precioSesion: "2500",
+},
+];   
 
-// let contenedorProductos = document.getElementById("contenedor-productos")
+let contenedorProductos = document.getElementById("contenedor-productos")
 
-// for(const producto of listaProductos){
-//     let columna = document.createElement("div")
-//     columna.className = "col-md-4 mt-3"
-//     columna.id = `columna-${producto.id}`
-//     columna.innerHTML =`
-//         <div class="card">
-//             <div class="card-body">
-//                 <p class="card-text">Nombre: <b>${producto.nombre}</b></p>           
-//                 <p class="card-text">Precio gastos: <b>${producto.precioGastos}</b></p>           
-//                 <p class="card-text">Precio Sesion: <b>${producto.precioSesion}</b></p>           
-//             </div>    
-//         </div>    `
+for(const producto of listaProductos){
+    let columna = document.createElement("div")
+    columna.className = "col-md-4 mt-3"
+    columna.id = `columna-${producto.id}`
+    columna.innerHTML =`
+        <div class="card">
+            <div class="card-body">
+                <p class="card-text">Nombre: <b>${producto.nombre}</b></p>           
+                <p class="card-text">Precio gastos: <b>${producto.precioGastos}</b></p>           
+                <p class="card-text">Precio Sesion: <b>${producto.precioSesion}</b></p>           
+            </div>    
+        </div>    `
         
-// contenedorProductos.append(columna)
-// }
+contenedorProductos.append(columna)
+}
 
-// let botonUno = document.getElementById("btnEventoUno")
-// let botonDos = document.getElementById("btnEventoDos")
+let botonUno = document.getElementById("btnEventoUno")
+let botonDos = document.getElementById("btnEventoDos")
 
-// botonUno.addEventListener("click", () =>{
-//     alert("Se oprimio boton uno")
-// })
+botonUno.addEventListener("click", () =>{
+    alert("Se oprimio boton uno")
+})
 
-// botonDos.onclick = () =>{
-//     alert("Se oprimio el boton dos")
-// }
+botonDos.onclick = () =>{
+    alert("Se oprimio el boton dos")
+}
 

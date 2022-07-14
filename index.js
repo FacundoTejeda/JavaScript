@@ -102,3 +102,62 @@ botonDos.onclick = () =>{
     alert("Se oprimio el boton dos")
 }
 
+
+class Producto {
+    constructor(id, nombre, imagen,precio){
+        this.id = id;
+        this.nombre = nombre;
+        this.imagen = imagen;
+        this.precio = precio;
+    }
+}
+
+class Carrito{
+    constructor(id, ){
+        this.id = id;
+        this.productos ;
+    }
+}
+
+let catalogoFotos = []
+let producto1 = new Producto(1,"Facundo","familias1.jpg",100);
+let producto2 = new Producto(2,"ivon","familias2.jpg",150);
+
+catalogoFotos.push(producto1);
+catalogoFotos.push(producto2);
+
+
+    let cardsDiv = document.querySelector("#cards")
+
+            catalogoFotos.forEach(producto =>{
+             cardsDiv.innerHTML += renderCard(producto);
+})
+
+function renderCard(producto){
+    let cardRendered= ` 
+    <div class="card m-3" style="width: 18rem;">
+       <img src="./images${producto.imagen}" class="card-img-top" alt="...">
+       <div class="card-body">
+          <h5 class="card-title">${producto.id}.${producto.nombre}</h5>
+          <p class="card-text">$${producto.precio}</p>
+          <a href="#" class="btn btn-primary botonDeCompra" id="${producto.id}>Agregar al carrito</a>
+       </div>
+    </div>
+    `;
+    return cardRendered
+}
+
+
+
+let carrito1 = new Carrito(1)
+ 
+
+let botones = document.querySelectorAll(".botonDeCompra");
+let arrayDeBotones = Array.from(botones);
+arrayDeBotones.forEach(boton =>{
+    boton.addEventListener("click", (e) => {
+    let productoSeleccionado = catalogoFotos.find(producto => producto.id == e.target.id);
+
+    })
+
+})

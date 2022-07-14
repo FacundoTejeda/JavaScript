@@ -111,11 +111,58 @@ class Producto {
         this.precio = precio;
     }
 }
+/* Funciones*/
+function renderCard(producto){
+    let cardRendered= ` 
+    <div class="card m-3" style="width: 18rem;">
+       <img src="../coderhouseJavaScript/images/${producto.imagen}" class="card-img-top" alt="...">
+       <div class="card-body">
+          <h5 class="card-title">${producto.id}.${producto.nombre}</h5>
+          <p class="card-text">$${producto.precio}</p>
+          <a href="#" class="btn btn-primary botonDeCompra" id="${producto.id}">Agregar al carrito</a>
+       </div>
+    </div>
+    `;
+    return cardRendered
+}
+function limpiarCarrito() {
+   let divCarrito = document.querySelector("#carrito");
+    divCarrito.innerHTML = "";
+}
+function actualizarCarrito(carrito){
+    let divCarrito = document.querySelector("#carrito");
+    carrito.productos.forEach(producto =>{
+        divCarrito.innerHTML += renderCard(producto);
+    })
+    divCarrito.innerHTML +=`<h1> Precio Total: $ ${carrito.calcularTotal()}</h1>`
+}
+function renovarStorage(){
+    localStorage.removeItem("carrito");
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+/*cargar carrito */
+window.addEventListener(`DOMContentLoaded`, (e) => {
+    let storage = JSON.parse(localStorage.getItem("carrito"));
+    let carritoGuardado = new Carrito(storage.id, storage.productos);
+    storage.productos.forEach(producto =>{
+        carritoGuardado.productos.push(producto);
+    })
+    limpiarCarrito();
+    actualizarCarrito(carritoGuardado);
+})
 
 class Carrito{
     constructor(id, ){
         this.id = id;
         this.productos = [];
+    }
+    calcularTotal(){
+        let total = 0;
+        for(let i = 0; i < this.productos.length;i++){
+            total = total + this.productos[i].precio
+        }
+        return total;
     }
 }
 
@@ -133,31 +180,18 @@ catalogoFotos.push(producto2);
              cardsDiv.innerHTML += renderCard(producto);
 })
 
-function renderCard(producto){
-    let cardRendered= ` 
-    <div class="card m-3" style="width: 18rem;">
-       <img src="../coderhouseJavaScript/images/${producto.imagen}" class="card-img-top" alt="...">
-       <div class="card-body">
-          <h5 class="card-title">${producto.id}.${producto.nombre}</h5>
-          <p class="card-text">$${producto.precio}</p>
-          <a href="#" class="btn btn-primary botonDeCompra" id="${producto.id}">Agregar al carrito</a>
-       </div>
-    </div>
-    `;
-    return cardRendered
-}
 
 
 
-/* manejo de los botones */
-let carrito1 = new Carrito(1);
- 
+/* manejo de los botones */ 
+let carrito = new Carrito(1); 
 let botones = document.querySelectorAll(".botonDeCompra");
 let arrayDeBotones = Array.from(botones);
 arrayDeBotones.forEach(boton =>{
     boton.addEventListener("click", (e) => {
     let productoSeleccionado = catalogoFotos.find(producto => producto.id == e.target.id);
-        carrito1.productos.push(productoSeleccionado)
+        carrito.productos.push(productoSeleccionado)
+        renovarStorage();
     })
 
 })

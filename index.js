@@ -1,37 +1,37 @@
-let formulario = document.getElementById("formulario")
-let nombreFamilia = document.getElementById("inputApellido")
-let cantidad = document.getElementById("number")
-formulario.onsubmit = (event) => validarFormulario(event)
+// let formulario = document.getElementById("formulario")
+// let nombreFamilia = document.getElementById("inputApellido")
+// let cantidad = document.getElementById("number")
+// formulario.onsubmit = (event) => validarFormulario(event)
 
-function validarFormulario(event) {
-    event.preventDefault()
-    console.log(event)
-    console.log("se ejecuto formulario")
-}
-let bienvenidaFamiliares  = document.createElement("div")
-      totalFamilias.innerHTML =`
-         <div class="saludoFamiliares">
-            <h2> Bienvenida Familia!</h2>
-            <p>${nombreFamilia}</p>
-         </div>               
-         `
-         totalFamilias.append(bienvenidaFamiliares)
+// function validarFormulario(event) {
+//     event.preventDefault()
+//     console.log(event)
+//     console.log("se ejecuto formulario")
+// }
+// let bienvenidaFamiliares  = document.createElement("div")
+//       totalFamilias.innerHTML =`
+//          <div class="saludoFamiliares">
+//             <h2> Bienvenida Familia!</h2>
+//             <p>${nombreFamilia}</p>
+//          </div>               
+//          `
+//          totalFamilias.append(bienvenidaFamiliares)
 
  
-  let precioCantidad = 3000
+//   let precioCantidad = 3000
 
-    const familiaresEgresados = [
-        {apellido: inputApellido, cantidad: cantidad, precio:cantidad *precioCantidad },
+//     const familiaresEgresados = [
+//         {apellido: inputApellido, cantidad: cantidad, precio:cantidad *precioCantidad },
                 
-    ]; 
+//     ]; 
     
     
-    const cantidadTotal = familiaresEgresados.reduce(
-        (acumulador, elemento) => acumulador + elemento.cantidad,
-        0
-    );
+//     const cantidadTotal = familiaresEgresados.reduce(
+//         (acumulador, elemento) => acumulador + elemento.cantidad,
+//         0
+//     );
     
-    console.log("La cantidad de personas a fotografiar es: "+ cantidadTotal)
+//     console.log("La cantidad de personas a fotografiar es: "+ cantidadTotal)
 
 
 // //Esta funcion es para que los fotografos ingresen sus sesiones hechas
@@ -91,16 +91,16 @@ function calcularGastos () {
         calcularGastos.append (columna)
     })
 }
-let botonUno = document.getElementById("btnEventoUno")
-let botonDos = document.getElementById("btnEventoDos")
+// let botonUno = document.getElementById("btnEventoUno")
+// let botonDos = document.getElementById("btnEventoDos")
 
-botonUno.addEventListener("click", () =>{
-    alert("Se oprimio boton uno")
-})
+// botonUno.addEventListener("click", () =>{
+//     alert("Se oprimio boton uno")
+// })
 
-botonDos.onclick = () =>{
-    alert("Se oprimio el boton dos")
-}
+// botonDos.onclick = () =>{
+//     alert("Se oprimio el boton dos")
+// }
 
 
 class Producto {
@@ -115,7 +115,7 @@ class Producto {
 class Carrito{
     constructor(id, ){
         this.id = id;
-        this.productos ;
+        this.productos = [];
     }
 }
 
@@ -136,11 +136,11 @@ catalogoFotos.push(producto2);
 function renderCard(producto){
     let cardRendered= ` 
     <div class="card m-3" style="width: 18rem;">
-       <img src="./images${producto.imagen}" class="card-img-top" alt="...">
+       <img src="../coderhouseJavaScript/images/${producto.imagen}" class="card-img-top" alt="...">
        <div class="card-body">
           <h5 class="card-title">${producto.id}.${producto.nombre}</h5>
           <p class="card-text">$${producto.precio}</p>
-          <a href="#" class="btn btn-primary botonDeCompra" id="${producto.id}>Agregar al carrito</a>
+          <a href="#" class="btn btn-primary botonDeCompra" id="${producto.id}">Agregar al carrito</a>
        </div>
     </div>
     `;
@@ -149,15 +149,15 @@ function renderCard(producto){
 
 
 
-let carrito1 = new Carrito(1)
+/* manejo de los botones */
+let carrito1 = new Carrito(1);
  
-
 let botones = document.querySelectorAll(".botonDeCompra");
 let arrayDeBotones = Array.from(botones);
 arrayDeBotones.forEach(boton =>{
     boton.addEventListener("click", (e) => {
     let productoSeleccionado = catalogoFotos.find(producto => producto.id == e.target.id);
-
+        carrito1.productos.push(productoSeleccionado)
     })
 
 })

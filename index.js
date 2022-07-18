@@ -35,66 +35,67 @@
 
 
 // //Esta funcion es para que los fotografos ingresen sus sesiones hechas
-const restar = (a, b) => a - b;
-const div = (a, b) => a / b;
-const sumar = (a, b) => a + b;
-const multi = (a, b) => a * b;
+// const restar = (a, b) => a - b;
+// const div = (a, b) => a / b;
+// const sumar = (a, b) => a + b;
+// const multi = (a, b) => a * b;
 
-const gastosTotales = []
+// const gastosTotales = []
 
-let formularioFotografos = document.getElementById("formularioFotografos")
-let inputApellidoFotografo = document.getElementById("inputApellidoFotografo")
-let inputCantidad = document.getElementById("inputCantidad")
-let inputPrecioGastosFotografo = document.getElementById("inputPrecioGastosFotografo")
-let inputPrecioVentaFotografo = document.getElementById("inputPrecioVentaFotografo")
-let contenedorPresupuesto = document.getElementById("contenedor-presupuesto")
+// let formularioFotografos = document.getElementById("formularioFotografos")
+// let inputApellidoFotografo = document.getElementById("inputApellidoFotografo")
+// let inputCantidad = document.getElementById("inputCantidad")
+// let inputPrecioGastosFotografo = document.getElementById("inputPrecioGastosFotografo")
+// let inputPrecioVentaFotografo = document.getElementById("inputPrecioVentaFotografo")
+// let contenedorPresupuesto = document.getElementById("contenedor-presupuesto")
 
-let productosFotografo = []
+// let productosFotografo = []
 
-class Productos{
-    constructor(apellido, cantidad, precioGastos, precioVenta ){
-    this.apellido = apellido.toUpperCase();
-    this.cantidad = cantidad;
-    this.precioGastos = precioGastos;
-    this.precioVenta = precioVenta;
-  }
-  gananciaFotografo = () => ((this.cantidad * this.precioVenta) - this.precioGastos)
-}
+// class Productos{
+//     constructor(apellido, cantidad, precioGastos, precioVenta ){
+//     this.apellido = apellido.toUpperCase();
+//     this.cantidad = cantidad;
+//     this.precioGastos = precioGastos;
+//     this.precioVenta = precioVenta;
+//   }
+//   gananciaFotografo = () => ((this.cantidad * this.precioVenta) - this.precioGastos)
+// }
 
-formularioFotografos.onsubmit = (event) => validarFormularioFotografo(event);
+// formularioFotografos.onsubmit = (event) => validarFormularioFotografo(event);
 
-function validarFormularioFotografo(event){
-    event.preventDefault();
-    let apellido = inputApellidoFotografo.value;
-    let cantidad = inputCantidad.value;
-    let precioGastos = inputPrecioGastosFotografo.value;
-    let precioVenta = inputPrecioVentaFotografo.value;
+// function validarFormularioFotografo(event){
+//     event.preventDefault();
+//     let apellido = inputApellidoFotografo.value;
+//     let cantidad = inputCantidad.value;
+//     let precioGastos = inputPrecioGastosFotografo.value;
+//     let precioVenta = inputPrecioVentaFotografo.value;
 
-    let producto = new Productos(apellido, cantidad, precioGastos, precioVenta)
-    productosFotografo.push(producto)
+//     let producto = new Productos(apellido, cantidad, precioGastos, precioVenta)
+//     productosFotografo.push(producto)
 
-    formularioFotografos.reset();
-    calcularGastos();
+//     formularioFotografos.reset();
+//     calcularGastos();
  
-}
+// }
 
-function calcularGastos () {
-    productosFotografo.forEach ((producto) =>{
-        let columna = document.createElement("div")
-        columna.innerHTML =`
-            <div class="card">
-                <div class="card_body">
-                    <p class="card_text">El total a liquidar es: $${Productos.gananciaFotografo}</p> 
-                </div>
-            </div>
-            `
-        calcularGastos.append (columna)
-    })
-}
-// let botonUno = document.getElementById("btnEventoUno")
-// let botonDos = document.getElementById("btnEventoDos")
+// function calcularGastos () {
+//     productosFotografo.forEach ((producto) =>{
+//         let columna = document.createElement("div")
+//         columna.innerHTML =`
+//             <div class="card">
+//                 <div class="card_body">
+//                     <p class="card_text">El total a liquidar es: $${producto.gananciaFotografo()}</p> 
+//                 </div>
+//             </div>   
+//             `
+        
+//     })
+// }
+// let calcularGastos = calcularGastos.append (columna)
+// // let botonUno = document.getElementById("btnEventoUno")
+// // let botonDos = document.getElementById("btnEventoDos")
 
-// botonUno.addEventListener("click", () =>{
+// // botonUno.addEventListener("click", () =>{
 //     alert("Se oprimio boton uno")
 // })
 
@@ -167,11 +168,15 @@ class Carrito{
 }
 
 let catalogoFotos = []
-let producto1 = new Producto(1,"Facundo","familias1.jpg",100);
-let producto2 = new Producto(2,"ivon","familias2.jpg",150);
+let producto1 = new Producto(1,"Sesion Familiar","familias1.jpg",100);
+let producto2 = new Producto(2,"Egresos","egreso.jpeg",150);
+let producto3 = new Producto(3,"Eventos empresariales","empresarial.jpg",150);
+let producto4 = new Producto(4,"Creacion de contenido","creacioncontenido.jpeg",150);
 
 catalogoFotos.push(producto1);
 catalogoFotos.push(producto2);
+catalogoFotos.push(producto3);
+catalogoFotos.push(producto4);
 
 
     let cardsDiv = document.querySelector("#cards")

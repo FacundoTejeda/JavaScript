@@ -168,10 +168,10 @@ class Carrito{
 }
 
 let catalogoFotos = []
-let producto1 = new Producto(1,"Sesion Familiar","familias1.jpg",100);
-let producto2 = new Producto(2,"Egresos","egreso.jpeg",150);
-let producto3 = new Producto(3,"Eventos empresariales","empresarial.jpg",150);
-let producto4 = new Producto(4,"Creacion de contenido","creacioncontenido.jpeg",150);
+let producto1 = new Producto(1,"Sesion Familiar","familias1.jpg",5000);
+let producto2 = new Producto(2,"Egresos","egreso.jpeg",5000);
+let producto3 = new Producto(3,"Eventos empresariales","empresarial.jpg",6000);
+let producto4 = new Producto(4,"Creacion de contenido","creacioncontenido.jpeg",2000);
 
 catalogoFotos.push(producto1);
 catalogoFotos.push(producto2);

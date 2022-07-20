@@ -222,7 +222,7 @@ cards.addEventListener("click", e =>{
 
 const fetchData = async () => {
     try{
-        const res = await fetch ("http://jsonTest.json")
+        const res = await fetch ("jsonTest.json")
         const data = await res.json()  
         // console.log(data)      
         pintarCards(data)

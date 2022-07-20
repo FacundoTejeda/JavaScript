@@ -112,6 +112,10 @@ class Producto {
         this.precio = precio;
     }
 }
+const desestructurar = ( {id, nombre, precio}) =>{
+console.log(id,nombre,precio)
+}
+desestructurar(producto)
 /* Funciones*/
 function renderCard(producto){
     let cardRendered= ` 

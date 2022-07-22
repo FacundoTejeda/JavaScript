@@ -7,11 +7,24 @@ class Producto {
     }
 }
 
-const desestructurar = (item) => {
-    const {id,precio} = item
-    console.log(id,precio)
+class Carrito{
+    constructor(id){
+        this.id = id;
+        this.productos = [];
+    }
+    calcularTotal(){
+        let total = 0;
+        for(let i = 0; i < this.productos.length;i++) {
+            total = total + this.productos[i].precio
+        }
+        return total;
+    }
 }
-desestructurar(Producto)
+// // const desestructurar = (item) => {
+// //     const {id,precio} = item
+// //     console.log(id,precio)
+// // }
+// // desestructurar(Producto)
 
 
 /* Funciones*/
@@ -28,20 +41,22 @@ function renderCard(producto){
     `;
     return cardRendered
 }
+
 function limpiarCarrito() {
-   let divCarrito = document.querySelector("#carrito");
+    let divCarrito = document.querySelector("#carrito");
     divCarrito.innerHTML = "";
 }
-function actualizarCarrito(carrito1){
+function actualizarCarrito(carrito) {
     let divCarrito = document.querySelector("#carrito");
-    carrito1.productos.forEach(producto =>{
+    carrito.productos.forEach(producto => {
         divCarrito.innerHTML += renderCard(producto);
     })
-    divCarrito.innerHTML +=`<h1> Precio Total: $ ${carrito1.calcularTotal()}</h1>`
+    divCarrito.innerHTML += `<h1>Precio Total: $ ${carrito.calcularTotal()}</h1>`
 }
-function renovarStorage(){
-    localStorage.removeItem("carrito");
-    localStorage.setItem("carrito", JSON.stringify(carrito1));
+
+function renovarStorage() {
+    localStorage.removeItem("carrito"); 
+    localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
 /*cargar carrito */
@@ -55,29 +70,13 @@ window.addEventListener('DOMContentLoaded', (e) => {
     limpiarCarrito();
     actualizarCarrito(carritoGuardado);
 }
-
 });
-
-class Carrito{
-    constructor(id, ){
-        this.id = id;
-        this.productos = [];
-    }
-    calcularTotal(){
-        let total = 0;
-        for(let i = 0; i < this.productos.length;i++){
-            total = total + this.productos[i].precio
-        }
-        return total;
-    }
-}
 
 let catalogoFotos = []
 let producto1 = new Producto(1,"Sesion Familiar","familias1.jpg",5000);
 let producto2 = new Producto(2,"Egresos","egreso.jpeg",5000);
 let producto3 = new Producto(3,"Eventos empresariales","empresarial.jpg",6000);
 let producto4 = new Producto(4,"Creacion de contenido","creacioncontenido.jpeg",4000);
-
 catalogoFotos.push(producto1);
 catalogoFotos.push(producto2);
 catalogoFotos.push(producto3);
@@ -85,24 +84,24 @@ catalogoFotos.push(producto4);
 
 
     let cardsDiv = document.querySelector("#cards")
-
-            catalogoFotos.forEach(producto =>{
-             cardsDiv.innerHTML += renderCard(producto);
+            catalogoFotos.forEach(producto => {
+            cardsDiv.innerHTML += renderCard(producto);
 })
 
 
 /* manejo de los botones */ 
-let carrito1 = new Carrito(1); 
+let carrito = new Carrito(1);
 let botones = document.querySelectorAll(".botonDeCompra");
 let arrayDeBotones = Array.from(botones);
-arrayDeBotones.forEach(boton =>{
+arrayDeBotones.forEach(boton => {
     boton.addEventListener("click", (e) => {
-    let productoSeleccionado = catalogoFotos.find(producto => producto.id == e.target.id);
-        carrito1.productos.push(productoSeleccionado)
+        let productoSeleccionado = catalogoFotos.find(producto => producto.id == e.target.id);
+        carrito.productos.push(productoSeleccionado);
+        limpiarCarrito();
+        actualizarCarrito(carrito);
         renovarStorage();
     })
-
-})
+});
 
 /** PRUEBA */
 // const cards = document.getElementById("cards")

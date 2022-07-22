@@ -1,109 +1,3 @@
-// let formulario = document.getElementById("formulario")
-// let nombreFamilia = document.getElementById("inputApellido")
-// let cantidad = document.getElementById("number")
-// formulario.onsubmit = (event) => validarFormulario(event)
-
-// function validarFormulario(event) {
-//     event.preventDefault()
-//     console.log(event)
-//     console.log("se ejecuto formulario")
-// }
-// let bienvenidaFamiliares  = document.createElement("div")
-//       totalFamilias.innerHTML =`
-//          <div class="saludoFamiliares">
-//             <h2> Bienvenida Familia!</h2>
-//             <p>${nombreFamilia}</p>
-//          </div>               
-//          `
-//          totalFamilias.append(bienvenidaFamiliares)
-
- 
-//   let precioCantidad = 3000
-
-//     const familiaresEgresados = [
-//         {apellido: inputApellido, cantidad: cantidad, precio:cantidad *precioCantidad },
-                
-//     ]; 
-    
-    
-//     const cantidadTotal = familiaresEgresados.reduce(
-//         (acumulador, elemento) => acumulador + elemento.cantidad,
-//         0
-//     );
-    
-//     console.log("La cantidad de personas a fotografiar es: "+ cantidadTotal)
-
-
-// //Esta funcion es para que los fotografos ingresen sus sesiones hechas
-// const restar = (a, b) => a - b;
-// const div = (a, b) => a / b;
-// const sumar = (a, b) => a + b;
-// const multi = (a, b) => a * b;
-
-// const gastosTotales = []
-
-// let formularioFotografos = document.getElementById("formularioFotografos")
-// let inputApellidoFotografo = document.getElementById("inputApellidoFotografo")
-// let inputCantidad = document.getElementById("inputCantidad")
-// let inputPrecioGastosFotografo = document.getElementById("inputPrecioGastosFotografo")
-// let inputPrecioVentaFotografo = document.getElementById("inputPrecioVentaFotografo")
-// let contenedorPresupuesto = document.getElementById("contenedor-presupuesto")
-
-// let productosFotografo = []
-
-// class Productos{
-//     constructor(apellido, cantidad, precioGastos, precioVenta ){
-//     this.apellido = apellido.toUpperCase();
-//     this.cantidad = cantidad;
-//     this.precioGastos = precioGastos;
-//     this.precioVenta = precioVenta;
-//   }
-//   gananciaFotografo = () => ((this.cantidad * this.precioVenta) - this.precioGastos)
-// }
-
-// formularioFotografos.onsubmit = (event) => validarFormularioFotografo(event);
-
-// function validarFormularioFotografo(event){
-//     event.preventDefault();
-//     let apellido = inputApellidoFotografo.value;
-//     let cantidad = inputCantidad.value;
-//     let precioGastos = inputPrecioGastosFotografo.value;
-//     let precioVenta = inputPrecioVentaFotografo.value;
-
-//     let producto = new Productos(apellido, cantidad, precioGastos, precioVenta)
-//     productosFotografo.push(producto)
-
-//     formularioFotografos.reset();
-//     calcularGastos();
- 
-// }
-
-// function calcularGastos () {
-//     productosFotografo.forEach ((producto) =>{
-//         let columna = document.createElement("div")
-//         columna.innerHTML =`
-//             <div class="card">
-//                 <div class="card_body">
-//                     <p class="card_text">El total a liquidar es: $${producto.gananciaFotografo()}</p> 
-//                 </div>
-//             </div>   
-//             `
-        
-//     })
-// }
-// let calcularGastos = calcularGastos.append (columna)
-// // let botonUno = document.getElementById("btnEventoUno")
-// // let botonDos = document.getElementById("btnEventoDos")
-
-// // botonUno.addEventListener("click", () =>{
-//     alert("Se oprimio boton uno")
-// })
-
-// botonDos.onclick = () =>{
-//     alert("Se oprimio el boton dos")
-// }
-
-
 class Producto {
     constructor(id, nombre, imagen,precio){
         this.id = id;
@@ -112,10 +6,14 @@ class Producto {
         this.precio = precio;
     }
 }
-const desestructurar = ( {id, nombre, precio}) =>{
-console.log(id,nombre,precio)
+
+const desestructurar = (item) => {
+    const {id,precio} = item
+    console.log(id,precio)
 }
-desestructurar(producto)
+desestructurar(Producto)
+
+
 /* Funciones*/
 function renderCard(producto){
     let cardRendered= ` 
@@ -134,28 +32,31 @@ function limpiarCarrito() {
    let divCarrito = document.querySelector("#carrito");
     divCarrito.innerHTML = "";
 }
-function actualizarCarrito(carrito){
+function actualizarCarrito(carrito1){
     let divCarrito = document.querySelector("#carrito");
-    carrito.productos.forEach(producto =>{
+    carrito1.productos.forEach(producto =>{
         divCarrito.innerHTML += renderCard(producto);
     })
-    divCarrito.innerHTML +=`<h1> Precio Total: $ ${carrito.calcularTotal()}</h1>`
+    divCarrito.innerHTML +=`<h1> Precio Total: $ ${carrito1.calcularTotal()}</h1>`
 }
 function renovarStorage(){
     localStorage.removeItem("carrito");
-    localStorage.setItem("carrito", JSON.stringify(carrito));
+    localStorage.setItem("carrito", JSON.stringify(carrito1));
 }
 
 /*cargar carrito */
-window.addEventListener(`DOMContentLoaded`, (e) => {
+window.addEventListener('DOMContentLoaded', (e) => {
     let storage = JSON.parse(localStorage.getItem("carrito"));
+    if(storage) {
     let carritoGuardado = new Carrito(storage.id, storage.productos);
-    storage.productos.forEach(producto =>{
+    storage.productos.forEach(producto => {
         carritoGuardado.productos.push(producto);
     })
     limpiarCarrito();
     actualizarCarrito(carritoGuardado);
-})
+}
+
+});
 
 class Carrito{
     constructor(id, ){
@@ -188,8 +89,6 @@ catalogoFotos.push(producto4);
             catalogoFotos.forEach(producto =>{
              cardsDiv.innerHTML += renderCard(producto);
 })
-
-
 
 
 /* manejo de los botones */ 
@@ -229,6 +128,7 @@ arrayDeBotones.forEach(boton =>{
 // items.addEventListener("click", e =>{
 //     btnAumentar
 // })
+
 // const fetchData = async () => {
 //     try{
 //         const res = await fetch ("http://jsonTest.json")

@@ -129,9 +129,9 @@ function mostrarAlert() {
 const cards = document.getElementById("cards")
 const items = document.getElementById("items")
 const footer = document.getElementById("footer")
-const templateCard = document.getElementById("template-card").content
-const templateFooter = document.getElementById("template-footer").content
-const templateCarrito = document.getElementById("template-carrito").content
+const templateCard = document.getElementById("template-card")
+const templateFooter = document.getElementById("template-footer")
+const templateCarrito = document.getElementById("template-carrito")
 const fragment = document.createDocumentFragment()
 
 class Producto {
@@ -163,7 +163,7 @@ const fetchData = async () => {
     try{
         const res = await fetch ("jsonTest.json")
         const data = await res.json()  
-        // console.log(data)      
+        //  console.log(data)      
         pintarCards(data)
     } catch (error) {
         console.log(error)
@@ -174,12 +174,13 @@ fetchData()
 // let catalogoFotos = []
 const pintarCards = catalogoFotos => {
     catalogoFotos.forEach (producto =>{
-        templateCard.querySelector('h5').textContent = producto.nombre
-        templateCard.querySelector('p').textContent = producto.precio
-        templateCard.querySelector('img').setAtributte("src", producto.imagen)
-        templateCard.querySelector('.btn-dark').dataset.id = producto.id             
-        const clone = templateCard.cloneNode(true)
-        fragment.appendChild(clone)
+        console.log(producto)
+        templateCard.querySelector('h5').innerText = producto.title
+        // templateCard.querySelector('p').textContent = producto.precio
+        // templateCard.querySelector('img').setAtributte("src", producto.imagen)
+        // templateCard.querySelector('.btn-dark').dataset.id = producto.id             
+        // const clone = templateCard.cloneNode(true)
+        // fragment.appendChild(clone)
     })
     cards.appendChild(fragment)
 }

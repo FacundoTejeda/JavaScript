@@ -31,7 +31,7 @@ class Carrito{
 function renderCard(producto){
     let cardRendered= ` 
     <div class="card m-3" style="width: 18rem;">
-       <img src="../coderhouseJavaScript/images/${producto.imagen}" class="card-img-top" alt="...">
+       <img src="../images/${producto.imagen}" class="card-img-top" alt="...">
        <div class="card-body">
           <h5 class="card-title">${producto.id}.${producto.nombre}</h5>
           <p class="card-text">$${producto.precio}</p>

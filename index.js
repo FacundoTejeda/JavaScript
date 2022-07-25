@@ -1,107 +1,107 @@
-class Producto {
-    constructor(id, nombre, imagen,precio){
-        this.id = id;
-        this.nombre = nombre;
-        this.imagen = imagen;
-        this.precio = precio;
-    }
-}
+// class Producto {
+//     constructor(id, nombre, imagen,precio){
+//         this.id = id;
+//         this.nombre = nombre;
+//         this.imagen = imagen;
+//         this.precio = precio;
+//     }
+// }
 
-class Carrito{
-    constructor(id){
-        this.id = id;
-        this.productos = [];
-    }
-    calcularTotal(){
-        let total = 0;
-        for(let i = 0; i < this.productos.length;i++) {
-            total = total + this.productos[i].precio
-        }
-        return total;
-    }
-}
-// // const desestructurar = (item) => {
-// //     const {id,precio} = item
-// //     console.log(id,precio)
-// // }
-// // desestructurar(Producto)
-
-
-/* Funciones*/
-function renderCard(producto){
-    let cardRendered= ` 
-    <div class="card m-3" style="width: 18rem;">
-       <img src="../images/${producto.imagen}" class="card-img-top" alt="...">
-       <div class="card-body">
-          <h5 class="card-title">${producto.id}.${producto.nombre}</h5>
-          <p class="card-text">$${producto.precio}</p>
-          <a href="#" class="btn btn-primary botonDeCompra" id="${producto.id}">Agregar al carrito</a>
-       </div>
-    </div>
-    `;
-    return cardRendered
-}
-
-function limpiarCarrito() {
-    let divCarrito = document.querySelector("#carrito");
-    divCarrito.innerHTML = "";
-}
-function actualizarCarrito(carrito) {
-    let divCarrito = document.querySelector("#carrito");
-    carrito.productos.forEach(producto => {
-        divCarrito.innerHTML += renderCard(producto);
-    })
-    divCarrito.innerHTML += `<h1>Precio Total: $ ${carrito.calcularTotal()}</h1>`
-}
-
-function renovarStorage() {
-    localStorage.removeItem("carrito"); 
-    localStorage.setItem("carrito", JSON.stringify(carrito));
-}
-
-/*cargar carrito */
-window.addEventListener('DOMContentLoaded', (e) => {
-    let storage = JSON.parse(localStorage.getItem("carrito"));
-    if(storage) {
-    let carritoGuardado = new Carrito(storage.id, storage.productos);
-    storage.productos.forEach(producto => {
-        carritoGuardado.productos.push(producto);
-    })
-    limpiarCarrito();
-    actualizarCarrito(carritoGuardado);
-}
-});
-
-let catalogoFotos = []
-let producto1 = new Producto(1,"Sesion Familiar","familias1.jpg",5000);
-let producto2 = new Producto(2,"Egresos","egreso.jpeg",5000);
-let producto3 = new Producto(3,"Eventos empresariales","empresarial.jpg",6000);
-let producto4 = new Producto(4,"Creacion de contenido","creacioncontenido.jpeg",4000);
-catalogoFotos.push(producto1);
-catalogoFotos.push(producto2);
-catalogoFotos.push(producto3);
-catalogoFotos.push(producto4);
+// class Carrito{
+//     constructor(id){
+//         this.id = id;
+//         this.productos = [];
+//     }
+//     calcularTotal(){
+//         let total = 0;
+//         for(let i = 0; i < this.productos.length;i++) {
+//             total = total + this.productos[i].precio
+//         }
+//         return total;
+//     }
+// }
+// // // const desestructurar = (item) => {
+// // //     const {id,precio} = item
+// // //     console.log(id,precio)
+// // // }
+// // // desestructurar(Producto)
 
 
-    let cardsDiv = document.querySelector("#cards")
-            catalogoFotos.forEach(producto => {
-            cardsDiv.innerHTML += renderCard(producto);
-})
+// /* Funciones*/
+// function renderCard(producto){
+//     let cardRendered= ` 
+//     <div class="card m-3" style="width: 18rem;">
+//        <img src="../images/${producto.imagen}" class="card-img-top" alt="...">
+//        <div class="card-body">
+//           <h5 class="card-title">${producto.id}.${producto.nombre}</h5>
+//           <p class="card-text">$${producto.precio}</p>
+//           <a href="#" class="btn btn-primary botonDeCompra" id="${producto.id}">Agregar al carrito</a>
+//        </div>
+//     </div>
+//     `;
+//     return cardRendered
+// }
+
+// function limpiarCarrito() {
+//     let divCarrito = document.querySelector("#carrito");
+//     divCarrito.innerHTML = "";
+// }
+// function actualizarCarrito(carrito) {
+//     let divCarrito = document.querySelector("#carrito");
+//     carrito.productos.forEach(producto => {
+//         divCarrito.innerHTML += renderCard(producto);
+//     })
+//     divCarrito.innerHTML += `<h1>Precio Total: $ ${carrito.calcularTotal()}</h1>`
+// }
+
+// function renovarStorage() {
+//     localStorage.removeItem("carrito"); 
+//     localStorage.setItem("carrito", JSON.stringify(carrito));
+// }
+
+// /*cargar carrito */
+// window.addEventListener('DOMContentLoaded', (e) => {
+//     let storage = JSON.parse(localStorage.getItem("carrito"));
+//     if(storage) {
+//     let carritoGuardado = new Carrito(storage.id, storage.productos);
+//     storage.productos.forEach(producto => {
+//         carritoGuardado.productos.push(producto);
+//     })
+//     limpiarCarrito();
+//     actualizarCarrito(carritoGuardado);
+// }
+// });
+
+// let catalogoFotos = []
+// let producto1 = new Producto(1,"Sesion Familiar","familias1.jpg",5000);
+// let producto2 = new Producto(2,"Egresos","egreso.jpeg",5000);
+// let producto3 = new Producto(3,"Eventos empresariales","empresarial.jpg",6000);
+// let producto4 = new Producto(4,"Creacion de contenido","creacioncontenido.jpeg",4000);
+// catalogoFotos.push(producto1);
+// catalogoFotos.push(producto2);
+// catalogoFotos.push(producto3);
+// catalogoFotos.push(producto4);
 
 
-/* manejo de los botones */ 
-let carrito = new Carrito(1);
-let botones = document.querySelectorAll(".botonDeCompra");
-let arrayDeBotones = Array.from(botones);
-arrayDeBotones.forEach(boton => {
-    boton.addEventListener("click", (e) => {
-        let productoSeleccionado = catalogoFotos.find(producto => producto.id == e.target.id);
-        carrito.productos.push(productoSeleccionado);
-        limpiarCarrito();
-        actualizarCarrito(carrito);
-        renovarStorage();
-    })
-});
+//     let cardsDiv = document.querySelector("#cards")
+//             catalogoFotos.forEach(producto => {
+//             cardsDiv.innerHTML += renderCard(producto);
+// })
+
+
+// /* manejo de los botones */ 
+// let carrito = new Carrito(1);
+// let botones = document.querySelectorAll(".botonDeCompra");
+// let arrayDeBotones = Array.from(botones);
+// arrayDeBotones.forEach(boton => {
+//     boton.addEventListener("click", (e) => {
+//         let productoSeleccionado = catalogoFotos.find(producto => producto.id == e.target.id);
+//         carrito.productos.push(productoSeleccionado);
+//         limpiarCarrito();
+//         actualizarCarrito(carrito);
+//         renovarStorage();
+//     })
+// });
 
 const btnMostrarAlert = document.getElementById("btn-mostrar-alert");
 btnMostrarAlert.onclick = mostrarAlert();

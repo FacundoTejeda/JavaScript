@@ -103,6 +103,28 @@ arrayDeBotones.forEach(boton => {
     })
 });
 
+const btnMostrarAlert = document.getElementById("btn-mostrar-alert");
+btnMostrarAlert.onclick = mostrarAlert();
+
+function mostrarAlert() {    
+    swal.fire({
+        title: '<strong> Queres comunicarte con nosotros?</strong>',
+        icon: 'info',
+        html:
+          'Mandanos un <b>Whatsapp</b>, ' +
+          '<a href="https://wa.me/5493816249426">links</a> ',
+          
+        showCloseButton: true,
+        showCancelButton: true,
+        focusConfirm: false,
+        confirmButtonText:
+          '<i class="fa fa-thumbs-up"></i> Necesitaba!',
+        confirmButtonAriaLabel: 'No, gracias!',
+        cancelButtonText:
+          '<i class="fa fa-thumbs-down"></i>',
+        cancelButtonAriaLabel: 'Thumbs down'
+      });
+}
 /** PRUEBA */
 // const cards = document.getElementById("cards")
 // const items = document.getElementById("items")

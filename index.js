@@ -103,28 +103,28 @@
 //     })
 // });
 
-const btnMostrarAlert = document.getElementById("btn-mostrar-alert");
-btnMostrarAlert.onclick = mostrarAlert();
+// const btnMostrarAlert = document.getElementById("btn-mostrar-alert");
+// btnMostrarAlert.onclick = mostrarAlert;
 
-function mostrarAlert() {    
-    swal.fire({
-        title: '<strong> Queres comunicarte con nosotros?</strong>',
-        icon: 'info',
-        html:
-          'Mandanos un <b>Whatsapp</b>, ' +
-          '<a href="https://wa.me/5493816249426">links</a> ',
+// function mostrarAlert() {    
+//     swal.fire({
+//         title: '<strong> Queres comunicarte con nosotros?</strong>',
+//         icon: 'info',
+//         html:
+//           'Mandanos un <b>Whatsapp</b>, ' +
+//           '<a href="https://wa.me/5493816249426">links</a> ',
           
-        showCloseButton: true,
-        showCancelButton: true,
-        focusConfirm: false,
-        confirmButtonText:
-          '<i class="fa fa-thumbs-up"></i> Necesitaba!',
-        confirmButtonAriaLabel: 'No, gracias!',
-        cancelButtonText:
-          '<i class="fa fa-thumbs-down"></i>',
-        cancelButtonAriaLabel: 'Thumbs down'
-      });
-}
+//         showCloseButton: true,
+//         showCancelButton: true,
+//         focusConfirm: false,
+//         confirmButtonText:
+//           '<i class="fa fa-thumbs-up"></i> Necesitaba!',
+//         confirmButtonAriaLabel: 'No, gracias!',
+//         cancelButtonText:
+//           '<i class="fa fa-thumbs-down"></i>',
+//         cancelButtonAriaLabel: 'Thumbs down'
+//       });
+// }
 /** PRUEBA */
 const cards = document.getElementById("cards")
 const items = document.getElementById("items")
@@ -173,14 +173,14 @@ fetchData()
 
 // let catalogoFotos = []
 const pintarCards = catalogoFotos => {
+    const fragment = document.createDocumentFragment()
     catalogoFotos.forEach (producto =>{
-        console.log(producto)
-        templateCard.querySelector('h5').innerText = producto.title
-        // templateCard.querySelector('p').textContent = producto.precio
-        // templateCard.querySelector('img').setAtributte("src", producto.imagen)
+           templateCard.content.querySelector('h5').textContent = producto.title
+           templateCard.content.querySelector('p').textContent = producto.precio
+           templateCard.content.querySelector('img').src = `/images/${producto.imagen}`
         // templateCard.querySelector('.btn-dark').dataset.id = producto.id             
-        // const clone = templateCard.cloneNode(true)
-        // fragment.appendChild(clone)
+         const clone = document.importNode(templateCard.content,true)
+        fragment.appendChild(clone)
     })
     cards.appendChild(fragment)
 }
@@ -209,17 +209,17 @@ const setCarrito = objeto => {
 }
 
 const pintarCarrito = () => {
-    // console.log(carrito)
+    const fragment = document.createDocumentFragment()
     items.innerHTML = ""
     Object.values(carrito).forEach(producto =>{
-        templateCarrito.querySelector("th").textContent = producto.id
-        templateCarrito.querySelector("td").textContent = producto.nombre
-        templateCarrito.querySelector("td").textContent = producto.cantidad
-        templateCarrito.querySelector(".btn-info").dataset.id = producto.id
-        templateCarrito.querySelector(".btn-danger").dataset.id = producto.id
-        templateCarrito.querySelector("span").textContent = producto.cantidad * producto.precio
-
-        const clone = templateCarrito.cloneNode(true)
+        templateCarrito.content.querySelector("th").textContent = producto.id
+        templateCarrito.content.querySelector("td").textContent = producto.nombre
+        templateCarrito.content.querySelector("td").textContent = producto.cantidad
+        templateCarrito.content.querySelector(".btn-info").dataset.id = producto.id
+        templateCarrito.content.querySelector(".btn-danger").dataset.id = producto.id
+        templateCarrito.content.querySelector("span").textContent = producto.cantidad * producto.precio
+        
+        const clone = document.importNode(templateCarrito.content,true)
         fragment.appendChild(clone)
     })
     items.appendChild
@@ -235,7 +235,7 @@ const pintarFooter = () => {
         return
     }
     const nCantidad = Object.values(carrito) .reduce((acc,{cantidad}) => acc + cantidad,0)
-    const nPrecio = Object.values(carrito.reduce((acc,{cantidad, precio}) => acc + cantidad * precio, 0))
+    const nPrecio = Object.values(carrito).reduce((acc,{cantidad, precio}) => acc + cantidad * precio, 0)
     templateFooter.querySelectorAll("td")[0].textContent = nCantidad
     templateFooter.querySelector("span")[0].textContent = nPrecio
 

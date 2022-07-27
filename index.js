@@ -178,11 +178,14 @@ const pintarCards = catalogoFotos => {
            templateCard.content.querySelector('h5').textContent = producto.title
            templateCard.content.querySelector('p').textContent = producto.precio
            templateCard.content.querySelector('img').src = `/images/${producto.imagen}`
-        // templateCard.querySelector('.btn-dark').dataset.id = producto.id             
-         const clone = document.importNode(templateCard.content,true)
+           templateCard.content.querySelector('.btn-dark').id = producto.id             
+           const clone = document.importNode(templateCard.content,true)
         fragment.appendChild(clone)
     })
     cards.appendChild(fragment)
+
+    let btnAddToCart = document.querySelector(".card .btn")
+        btnAddToCart.addEventListener("click", (e) => addCarrito(e))
 }
 
 const addCarrito = e => {
@@ -234,21 +237,24 @@ const pintarFooter = () => {
         footer.innerHTML = '<th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>'
         return
     }
+
     const nCantidad = Object.values(carrito) .reduce((acc,{cantidad}) => acc + cantidad,0)
     const nPrecio = Object.values(carrito).reduce((acc,{cantidad, precio}) => acc + cantidad * precio, 0)
-    templateFooter.querySelectorAll("td")[0].textContent = nCantidad
-    templateFooter.querySelector("span")[0].textContent = nPrecio
+    templateFooter.content.querySelectorAll("td").textContent = nCantidad
+    templateFooter.content.querySelector("span").textContent = nPrecio
 
    const clone = templateFooter.cloneNode(true)
-   fragment.appendChild(clone)
+   fragment.appendChild(clone)  
    footer.appendChild(fragment)
 
-   const btnVaciar = document.getElementById("vaciar.carrito")
+
+   const btnVaciar = document.getElementById("vaciar-carrito")
+      
    btnVaciar.addEventListener("click",() =>{
-    carrito ={}
+    carrito = {}
     pintarCarrito()
    })
-
+ 
 }
 
 const btnAumentar = e => {

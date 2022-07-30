@@ -189,7 +189,7 @@ const pintarCards = catalogoFotos => {
 }
 
 const addCarrito = e => {
-    console.log(e.target)
+    // console.log(e.target)
     if (e.target.classList.contains("btn-dark")){
         setCarrito(e.target.parentElement)
     }
@@ -232,6 +232,7 @@ const pintarCarrito = () => {
     localStorage.setItem("carrito", JSON.stringify(carrito))
 }
 const pintarFooter = () => {
+    const fragment = document.createDocumentFragment()
     footer.innerHTML = ""
     if(Object.keys(carrito).length === 0){
         footer.innerHTML = '<th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>'
@@ -247,14 +248,16 @@ const pintarFooter = () => {
    fragment.appendChild(clone)  
    footer.appendChild(fragment)
 
+//    const btnVaciarCarrito = document.getElementById("vaciar-carrito")
 
-   const btnVaciar = document.getElementById("vaciar-carrito")
-      
+    let btnVaciar = document.querySelector(".card .btn")
+
    btnVaciar.addEventListener("click",() =>{
+    carrito.splice(items,1)
     carrito = {}
-    pintarCarrito()
+pintarCarrito()
    })
- 
+
 }
 
 const btnAumentar = e => {

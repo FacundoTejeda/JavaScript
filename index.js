@@ -142,12 +142,17 @@ class Producto {
         this.precio = precio;
     }
 }
+ let carrito = [];
 
-// let carrito = {}
-
-document.addEventListener('DOMContentLoaded', () => {    
+document.addEventListener('DOMContentLoaded', () => {  
+    console.log('Carro 1', carrito);  
     if(localStorage.getItem("carrito")) {
-        carrito = JSON.parse(localStorage.getItem("carrito"))
+        carga = JSON.parse(localStorage.getItem("carrito"));
+
+        //if(carga !== null){
+            carrito = carga;
+        //}
+        console.log('Carro 2', carrito);
         pintarCarrito()
     }
 })
@@ -189,9 +194,10 @@ const pintarCards = catalogoFotos => {
 }
 
 const addCarrito = e => {
-    // console.log(e.target)
+    
     if (e.target.classList.contains("btn-dark")){
-        setCarrito(e.target.parentElement)
+       
+         setCarrito(e.target.parentElement)
     }
     e.stopPropagation()
 }
@@ -199,22 +205,29 @@ const addCarrito = e => {
 const setCarrito = objeto => {
     // console.log(objeto)
     const producto = {
-        id: objeto.querySelector(".btn-dark").dataset.id,
+        id: objeto.querySelector(".btn-dark").getAttribute("id"),
         nombre: objeto.querySelector("h5").textContent,
         precio: objeto.querySelector("p").textContent,
         cantidad: 1
     }
+    console.log(producto)
     if(carrito.hasOwnProperty(producto.id)){
         producto.cantidad = carrito[producto.id].cantidad + 1 
     }
-    carrito[producto.id] = {...producto}
+    //carrito[producto.id] = {...producto}
+    carrito[producto.id] = producto;
+    localStorage.setItem("carrito", JSON.stringify(carrito))
+    console.log(carrito)
     pintarCarrito()
 }
 
 const pintarCarrito = () => {
     const fragment = document.createDocumentFragment()
     items.innerHTML = ""
-    Object.values(carrito).forEach(producto =>{
+    console.log('pintarCarrito', carrito);
+    carrito.forEach(producto =>{
+        console.log('pintarCarrito', producto);
+        if(producto !== null){
         templateCarrito.content.querySelector("th").textContent = producto.id
         templateCarrito.content.querySelector("td").textContent = producto.nombre
         templateCarrito.content.querySelector("td").textContent = producto.cantidad
@@ -224,38 +237,35 @@ const pintarCarrito = () => {
         
         const clone = document.importNode(templateCarrito.content,true)
         fragment.appendChild(clone)
+        }
     })
     items.appendChild
 
     pintarFooter()
-    
-    localStorage.setItem("carrito", JSON.stringify(carrito))
 }
 const pintarFooter = () => {
     const fragment = document.createDocumentFragment()
     footer.innerHTML = ""
     if(Object.keys(carrito).length === 0){
-        footer.innerHTML = '<th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>'
+        footer.innerHTML = '<th scope="row" colspan="5">Carrito vacío </th>'
         return
     }
 
     const nCantidad = Object.values(carrito) .reduce((acc,{cantidad}) => acc + cantidad,0)
     const nPrecio = Object.values(carrito).reduce((acc,{cantidad, precio}) => acc + cantidad * precio, 0)
-    templateFooter.content.querySelectorAll("td").textContent = nCantidad
+
+    templateFooter.content.querySelectorAll("td")[0].textContent = nCantidad
     templateFooter.content.querySelector("span").textContent = nPrecio
 
    const clone = templateFooter.cloneNode(true)
    fragment.appendChild(clone)  
    footer.appendChild(fragment)
 
-//    const btnVaciarCarrito = document.getElementById("vaciar-carrito")
-
-    let btnVaciar = document.querySelector(".card .btn")
-
-   btnVaciar.addEventListener("click",() =>{
-    carrito.splice(items,1)
-    carrito = {}
-pintarCarrito()
+   const vaciarCarrito = document.getElementById("vaciarCarrito")
+   
+    vaciarCarrito.addEventListener("click", () => {
+    carrito = []
+    pintarCarrito()
    })
 
 }

@@ -215,7 +215,7 @@ const setCarrito = objeto => {
         producto.cantidad = carrito[producto.id].cantidad + 1 
     }
     //carrito[producto.id] = {...producto}
-    carrito[producto.id] = producto;
+    carrito.push(producto)
     localStorage.setItem("carrito", JSON.stringify(carrito))
     console.log(carrito)
     pintarCarrito()
@@ -238,8 +238,9 @@ const pintarCarrito = () => {
         const clone = document.importNode(templateCarrito.content,true)
         fragment.appendChild(clone)
         }
+        items.appendChild(fragment)
     })
-    items.appendChild
+    
 
     pintarFooter()
 }
@@ -251,7 +252,7 @@ const pintarFooter = () => {
         return
     }
 
-    const nCantidad = Object.values(carrito) .reduce((acc,{cantidad}) => acc + cantidad,0)
+    const nCantidad = Object.values(carrito).reduce((acc,{cantidad}) => acc + cantidad,0)
     const nPrecio = Object.values(carrito).reduce((acc,{cantidad, precio}) => acc + cantidad * precio, 0)
 
     templateFooter.content.querySelectorAll("td")[0].textContent = nCantidad

@@ -208,16 +208,29 @@ const setCarrito = objeto => {
         id: objeto.querySelector(".btn-dark").getAttribute("id"),
         nombre: objeto.querySelector("h5").textContent,
         precio: objeto.querySelector("p").textContent,
-        cantidad: 1
+        cantidad: 1,
     }
-    console.log(producto)
-    if(carrito.hasOwnProperty(producto.id)){
-        producto.cantidad = carrito[producto.id].cantidad + 1 
+    console.log('Carrito 1', carrito);
+    var carritoNuevo = [];
+
+    carrito.forEach((item) => {
+        if(item.id == producto.id){
+            item.cantidad = item.cantidad + 1;            
+        }
+
+        carritoNuevo.push(item); 
+    });
+    
+    var item = carritoNuevo.find(item => item.id == producto.id);
+
+    if(typeof item === 'undefined') {
+        carritoNuevo.push(producto)
     }
-    //carrito[producto.id] = {...producto}
-    carrito.push(producto)
-    localStorage.setItem("carrito", JSON.stringify(carrito))
-    console.log(carrito)
+
+    carrito = carritoNuevo;
+    
+    //localStorage.setItem("carrito", JSON.stringify(carrito))
+    console.log('Carrito 2', carrito);
     pintarCarrito()
 }
 
@@ -230,7 +243,7 @@ const pintarCarrito = () => {
         if(producto !== null){
         templateCarrito.content.querySelector("th").textContent = producto.id
         templateCarrito.content.querySelector("td").textContent = producto.nombre
-        templateCarrito.content.querySelector("td").textContent = producto.cantidad
+        templateCarrito.content.querySelector("#carrito-cantidad").textContent = producto.cantidad
         templateCarrito.content.querySelector(".btn-info").dataset.id = producto.id
         templateCarrito.content.querySelector(".btn-danger").dataset.id = producto.id
         templateCarrito.content.querySelector("span").textContent = producto.cantidad * producto.precio
@@ -239,9 +252,7 @@ const pintarCarrito = () => {
         fragment.appendChild(clone)
         }
         items.appendChild(fragment)
-    })
-    
-
+    })  
     pintarFooter()
 }
 const pintarFooter = () => {
@@ -265,6 +276,7 @@ const pintarFooter = () => {
    const vaciarCarrito = document.getElementById("vaciarCarrito")
    
     vaciarCarrito.addEventListener("click", () => {
+        
     carrito = []
     pintarCarrito()
    })

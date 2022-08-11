@@ -1,25 +1,3 @@
-const btnMostrarAlert = document.getElementById("btn-mostrar-alert");
-btnMostrarAlert.onclick = mostrarAlert;
-
-function mostrarAlert() {    
-    swal.fire({
-        title: '<strong> Queres comunicarte con nosotros?</strong>',
-        icon: 'info',
-        html:
-          'Mandanos un <b>Whatsapp</b> ' +
-          '<a href="https://wa.me/5493816249426">aca!</a> ',
-          
-        showCloseButton: true,
-        showCancelButton: true,
-        focusConfirm: false,
-        confirmButtonText:
-          '<i class="fa fa-thumbs-up"></i> Salir',
-        confirmButtonAriaLabel: 'No, gracias!',
-        cancelButtonText:
-          '<i class="fa fa-thumbs-down"></i>',
-        cancelButtonAriaLabel: 'Thumbs down'
-      });
-}
 /** PRUEBA */
 const cards = document.getElementById("cards")
 const items = document.getElementById("items")
@@ -170,30 +148,47 @@ const pintarFooter = () => {
 
    const vaciarCarrito = document.getElementById("vaciarCarrito")
    
-    vaciarCarrito.addEventListener("click", () => {
-        
+    vaciarCarrito.addEventListener("click", () => {        
     carrito = []
     pintarCarrito()
-   })
+   })}
 
-}
+   const compraCarrito = document.getElementById("comprarCarrito")
+   compraCarrito.addEventListener("click", () => {
+   swal.fire({
+    title: '<strong> Gracias por tu compra</strong>',
+    icon: 'success',
+    html:
+      'Te dejamos <b>Whatsapp</b> ' +
+      '<a href="https://wa.me/5493816249426">aca!</a> ',      
+    showCloseButton: true,
+    showCancelButton: true,
+    focusConfirm: false,
+    confirmButtonText:
+      '<i class="fa fa-thumbs-up">Si, quiero vaciarlo</i> ',
+    confirmButtonAriaLabel: 'Si, gracias!',
+    cancelButtonText:
+      '<i class="fa fa-thumbs-down">assa</i>',
+    cancelButtonAriaLabel: 'Thumbs down'
+  })
+})
 
-const btnAumentar = e => {
-    console.log(e.target)
-    if(e.target.classList.contains("btn-info")){
-    //    console.log(carrito[e.target.dataset.id])        
-        const producto = carrito[e.target.dataset.id]
-        producto.cantidad++
-        carrito[e.target.dataset.id] = {...producto}
-        pintarCarrito()
-    }
-    if(e.target.classList.contains("btn-danger")){
-        const producto = carrito[e.target.dataset.id]
-        producto.cantidad--
-        if(producto.cantidad === 0){
-            delete carrito[e.target.dataset.id]
-        }
-        pintarCarrito()
-}
-e.stopPropagation()
-}
+// const btnAumentar = e => {
+//     console.log(e.target)
+//     if(e.target.classList.contains("btn-info")){
+//        console.log(carrito[e.target.dataset.id])        
+//         const producto = carrito[e.target.dataset.id]
+//         producto.cantidad++
+//         carrito[e.target.dataset.id] = {...producto}
+//         pintarCarrito()
+//     }
+//     if(e.target.classList.contains("btn-danger")){
+//         const producto = carrito[e.target.dataset.id]
+//         producto.cantidad--
+//         if(producto.cantidad === 0){
+//             delete carrito[e.target.dataset.id]
+//         }
+//         pintarCarrito()
+// }
+// e.stopPropagation()
+// }

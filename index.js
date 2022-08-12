@@ -1,3 +1,25 @@
+const btnMostrarAlert = document.getElementById("btn-mostrar-alert");
+btnMostrarAlert.onclick = mostrarAlert;
+
+function mostrarAlert() {    
+    swal.fire({
+        title: '<strong> Queres comunicarte con nosotros?</strong>',
+        icon: 'warning',
+        html:
+          'Mandanos un <b>Whatsapp</b> ' +
+          '<a href="https://wa.me/5493816249426">aca!</a> ',
+          
+        showCloseButton: true,
+        showCancelButton: true,
+        focusConfirm: false,
+        confirmButtonText:
+          '<i class="fa fa-thumbs-up"></i> Salir',
+        confirmButtonAriaLabel: 'No, gracias!',
+        cancelButtonText:
+          '<i class="fa fa-thumbs-down"></i>',
+        cancelButtonAriaLabel: 'Thumbs down'
+      });
+}
 /** PRUEBA */
 const cards = document.getElementById("cards")
 const items = document.getElementById("items")
@@ -172,7 +194,6 @@ const pintarFooter = () => {
     cancelButtonAriaLabel: 'Thumbs down'
   })
 })
-
 // const btnAumentar = e => {
 //     console.log(e.target)
 //     if(e.target.classList.contains("btn-info")){
